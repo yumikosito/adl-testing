@@ -1,0 +1,354 @@
+[
+  {
+    "description": "  Como usuario \n  Quiero iniciar sesion\n  Para ingresar al sistema",
+    "elements": [
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-válidas",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Intento de ingreso con credenciales válidas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 395024699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5534475800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "el usuario ingresa \"testeradl@test.com\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42463899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "el usuario ingresa \"Tester@2025\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 90618699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "se debe mostrar el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\login-steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1900916499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 234311000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-inválidas",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Intento de ingreso con credenciales inválidas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 361384000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5404364499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "el usuario ingresa \"testeradl1@test.com\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43989900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "el usuario ingresa \"Tester@2025\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86121699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "se debe mostrar una alerta de \"Las credenciales proporcionadas son incorrectas\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1910985600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 152009900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacío-de-email",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Intento de ingreso con campo vacío de email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 342148900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5616622599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "el usuario ingresa \"\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42013900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "el usuario ingresa \"Tester\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100110599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "se debe mostrar un mensaje de que se requiere llenado de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53922999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1572247400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacío-de-contraseña",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Intento de ingreso con campo vacío de contraseña",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 371959699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5520969500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "el usuario ingresa \"testeradl@test.com\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41592400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "el usuario ingresa \"\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100464900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "se debe mostrar un mensaje de que se requiere llenado de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44047699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1961474099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "servicio-de-login",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Servicio de Login",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "features\\login.feature"
+  }
+]
