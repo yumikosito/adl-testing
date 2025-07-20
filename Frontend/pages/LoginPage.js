@@ -25,11 +25,16 @@ class LoginPage {
   }
 
   async login(email, password) {
-    await this.page.fillField(this.emailInput, email)
+    await this.page.goto('/login');
+    await this.fillEmail(email)
     await this.page.waitForTimeout(500)
-    await this.page.fillField(this.selectors.passwordInput, password)
+    await this.fillPassword(password)
     await this.page.waitForTimeout(500)
-    await this.page.clickLogin()
+    await this.clickLogin()
+  }
+
+  async clickLogout() {
+    await this.page.getByRole('button', { name: 'Cerrar Sesión' }).click();
   }
 
 }

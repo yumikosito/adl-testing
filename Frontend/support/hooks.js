@@ -1,7 +1,8 @@
-const { Before, After } = require('@cucumber/cucumber');
+const { Before, After, AfterStep } = require('@cucumber/cucumber');
 const { setDefaultTimeout } = require('@cucumber/cucumber');
 const LoginPage = require('../pages/LoginPage');
-// const fs = require('fs');
+const GetPage = require('../pages/GetPage');
+const fs = require('fs');
 // const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
 // const SecurePage = require('../step_definitions/pom/securePage');
@@ -12,30 +13,30 @@ Before(async function () {
     // 'this' es una instancia de tu CustomWorld
     await this.init();
 
-    // const screenshotDir = 'reports/screenshots';
-    // if (!fs.existsSync(screenshotDir)) {
-    //     fs.mkdirSync(screenshotDir, { recursive: true });
-    // }
+    const screenshotDir = 'reports/screenshots';
+    if (!fs.existsSync(screenshotDir)) {
+        fs.mkdirSync(screenshotDir, { recursive: true });
+    }
     // Instanciamos los Page Objects para cada escenario, pasándoles la nueva página
     this.loginPage = new LoginPage(this.page);
-    // this.securePage = new SecurePage(this.page);
+    this.getPage = new GetPage(this.page);
 });
 
-// AfterStep(async function (scenario) {
-//     if (this.page) {
-        // //Si desean screenshots en cada paso
-        // /*
-        // const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        // const scenarioName = scenario.pickle.name.replace(/[^a-zA-Z0-9]/g, '_');
-        // const filename = `step-${scenarioName}-${timestamp}.png`;
+AfterStep(async function (scenario) {
+    if (this.page) {
+        //Si desean screenshots en cada paso
 
-        // await this.page.screenshot({
-        //     path: `reports/screenshots/${filename}`,
-        //     fullPage: true
-        // });
-        // */
-//     }
-// });
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const scenarioName = scenario.pickle.name.replace(/[^a-zA-Z0-9]/g, '_');
+        const filename = `step-${scenarioName}-${timestamp}.png`;
+
+        await this.page.screenshot({
+            path: `reports/screenshots/${filename}`,
+            fullPage: true
+        });
+
+    }
+});
 
 After(async function (scenario) {
     //Solo toma screenshoot cuando falla

@@ -1,6 +1,5 @@
-const { Given, When, Then, Before } = require('@cucumber/cucumber');
+const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
-const { LoginPage } = require('../pages/LoginPage')
 
 
 Given('el usuario esta previamente registrado y en la pagina de login', async function () {

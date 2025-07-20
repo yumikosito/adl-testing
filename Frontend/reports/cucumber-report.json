@@ -1,72 +1,59 @@
 [
   {
-    "description": "  Como usuario \n  Quiero iniciar sesion\n  Para ingresar al sistema",
+    "description": "  Como usuario\n  Quiero poder acceder al sistema\n  Para consultar productos",
     "elements": [
       {
         "description": "",
-        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-válidas",
+        "id": "consulta-de-productos;consulta-exitosa-de-productos-generales",
         "keyword": "Scenario",
         "line": 10,
-        "name": "Intento de ingreso con credenciales válidas",
+        "name": "Consulta exitosa de productos generales",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 395024699
+              "duration": 250592900
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
             "match": {
-              "location": "step_definitions\\login-steps.js:6"
+              "location": "step_definitions\\get-steps.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 5534475800
+              "duration": 10141232699
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 11,
-            "name": "el usuario ingresa \"testeradl@test.com\" en el campo de email",
+            "name": "se navega a la sección de Articulos",
             "match": {
-              "location": "step_definitions\\login-steps.js:11"
+              "location": "step_definitions\\get-steps.js:9"
             },
             "result": {
               "status": "passed",
-              "duration": 42463899
+              "duration": 215868899
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
+            "keyword": "Then ",
             "line": 12,
-            "name": "el usuario ingresa \"Tester@2025\" en el campo de contraseña",
+            "name": "se deben mostrar todos los productos en tu cuenta",
             "match": {
-              "location": "step_definitions\\login-steps.js:15"
+              "location": "step_definitions\\get-steps.js:14"
             },
             "result": {
               "status": "passed",
-              "duration": 90618699
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "se debe mostrar el dashboard del sistema",
-            "match": {
-              "location": "step_definitions\\login-steps.js:21"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1900916499
+              "duration": 913230799
             }
           },
           {
@@ -74,13 +61,13 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 234311000
+              "duration": 72500799
             }
           }
         ],
         "tags": [
           {
-            "name": "@login",
+            "name": "@get-products",
             "line": 1
           }
         ],
@@ -88,69 +75,69 @@
       },
       {
         "description": "",
-        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-inválidas",
+        "id": "consulta-de-productos;consulta-exitosa-de-detalle-de-producto-individual-existente",
         "keyword": "Scenario",
-        "line": 15,
-        "name": "Intento de ingreso con credenciales inválidas",
+        "line": 14,
+        "name": "Consulta exitosa de detalle de producto individual existente",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 361384000
+              "duration": 236377500
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
             "match": {
-              "location": "step_definitions\\login-steps.js:6"
+              "location": "step_definitions\\get-steps.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 5404364499
+              "duration": 9047168700
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
+            "line": 15,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 190291000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
             "line": 16,
-            "name": "el usuario ingresa \"testeradl1@test.com\" en el campo de email",
+            "name": "se selecciona el producto con ID 3",
             "match": {
-              "location": "step_definitions\\login-steps.js:11"
+              "location": "step_definitions\\get-steps.js:24"
             },
             "result": {
               "status": "passed",
-              "duration": 43989900
+              "duration": 3004216099
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
+            "keyword": "Then ",
             "line": 17,
-            "name": "el usuario ingresa \"Tester@2025\" en el campo de contraseña",
+            "name": "se debe mostrar en pantalla \"Artículo: Laptop HP 14.\"",
             "match": {
-              "location": "step_definitions\\login-steps.js:15"
+              "location": "step_definitions\\get-steps.js:28"
             },
             "result": {
               "status": "passed",
-              "duration": 86121699
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 18,
-            "name": "se debe mostrar una alerta de \"Las credenciales proporcionadas son incorrectas\"",
-            "match": {
-              "location": "step_definitions\\login-steps.js:27"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1910985600
+              "duration": 880810399
             }
           },
           {
@@ -158,13 +145,13 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 152009900
+              "duration": 62160100
             }
           }
         ],
         "tags": [
           {
-            "name": "@login",
+            "name": "@get-products",
             "line": 1
           }
         ],
@@ -172,69 +159,69 @@
       },
       {
         "description": "",
-        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacío-de-email",
+        "id": "consulta-de-productos;consulta-erronea-de-detalle-de-producto-individual-inexistente",
         "keyword": "Scenario",
-        "line": 20,
-        "name": "Intento de ingreso con campo vacío de email",
+        "line": 19,
+        "name": "Consulta erronea de detalle de producto individual inexistente",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 342148900
+              "duration": 230391800
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
             "match": {
-              "location": "step_definitions\\login-steps.js:6"
+              "location": "step_definitions\\get-steps.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 5616622599
+              "duration": 9437873500
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
+            "line": 20,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 200027899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
             "line": 21,
-            "name": "el usuario ingresa \"\" en el campo de email",
+            "name": "se selecciona el producto con ID 999",
             "match": {
-              "location": "step_definitions\\login-steps.js:11"
+              "location": "step_definitions\\get-steps.js:24"
             },
             "result": {
               "status": "passed",
-              "duration": 42013900
+              "duration": 3150814400
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
+            "keyword": "Then ",
             "line": 22,
-            "name": "el usuario ingresa \"Tester\" en el campo de contraseña",
+            "name": "se debe mostrar un mensaje de error \"Error al cargar el artículo.\"",
             "match": {
-              "location": "step_definitions\\login-steps.js:15"
+              "location": "step_definitions\\get-steps.js:35"
             },
             "result": {
               "status": "passed",
-              "duration": 100110599
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 23,
-            "name": "se debe mostrar un mensaje de que se requiere llenado de email",
-            "match": {
-              "location": "step_definitions\\login-steps.js:32"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 53922999
+              "duration": 931254599
             }
           },
           {
@@ -242,113 +229,29 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1572247400
+              "duration": 90495399
             }
           }
         ],
         "tags": [
           {
-            "name": "@login",
-            "line": 1
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacío-de-contraseña",
-        "keyword": "Scenario",
-        "line": 25,
-        "name": "Intento de ingreso con campo vacío de contraseña",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 371959699
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "el usuario esta previamente registrado y en la pagina de login",
-            "match": {
-              "location": "step_definitions\\login-steps.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5520969500
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "el usuario ingresa \"testeradl@test.com\" en el campo de email",
-            "match": {
-              "location": "step_definitions\\login-steps.js:11"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 41592400
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 27,
-            "name": "el usuario ingresa \"\" en el campo de contraseña",
-            "match": {
-              "location": "step_definitions\\login-steps.js:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 100464900
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "se debe mostrar un mensaje de que se requiere llenado de contraseña",
-            "match": {
-              "location": "step_definitions\\login-steps.js:38"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 44047699
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1961474099
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@login",
+            "name": "@get-products",
             "line": 1
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "servicio-de-login",
+    "id": "consulta-de-productos",
     "line": 2,
     "keyword": "Feature",
-    "name": "Servicio de Login",
+    "name": "Consulta de productos",
     "tags": [
       {
-        "name": "@login",
+        "name": "@get-products",
         "line": 1
       }
     ],
-    "uri": "features\\login.feature"
+    "uri": "features\\get.feature"
   }
 ]
