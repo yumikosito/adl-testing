@@ -27,7 +27,6 @@ When('se selecciona el producto con ID {int}', async function(id){
 
 Then('se debe mostrar en pantalla {string}', async function(product){
   await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
-
   await expect(this.page.locator('h3')).toHaveText(product)
   await expect(this.page.locator('p')).toHaveText('Detalles completos del registro seleccionado.')
 })

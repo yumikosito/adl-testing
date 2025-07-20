@@ -8,15 +8,16 @@ class GetPage {
     }
   }
 
- async clickSelector(selector){
-  await selector(this.page).click();
-}
+  async clickSelector(selector){
+    await selector(this.page).click();
+  }
 
   async goToProducts() {
     await this.clickSelector(this.selectors.entButton);
     await this.clickSelector(this.selectors.productsButton);
     await this.page.waitForTimeout(500)
   }
+
 
 }
 module.exports = GetPage;

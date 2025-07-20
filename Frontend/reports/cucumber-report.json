@@ -1,143 +1,73 @@
 [
   {
-    "description": "  Como usuario\n  Quiero poder acceder al sistema\n  Para consultar productos",
+    "description": "\tComo usuario\n\tQuiero poder acceder al sistema\n\tPara actualizar los datos de mis productos",
     "elements": [
       {
         "description": "",
-        "id": "consulta-de-productos;consulta-exitosa-de-productos-generales",
+        "id": "modificación-de-información-de-productos;modificación-exitosa-de-campo-de-descripcion-de-producto",
         "keyword": "Scenario",
         "line": 10,
-        "name": "Consulta exitosa de productos generales",
+        "name": "Modificación exitosa de campo de descripcion de producto",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 250592900
+              "duration": 224243899
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
+            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", esta en Listado de Articulos y el producto \"Laptop HP 14.\" existe",
             "match": {
-              "location": "step_definitions\\get-steps.js:4"
+              "location": "step_definitions\\put-steps.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 10141232699
+              "duration": 8914370000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 11,
-            "name": "se navega a la sección de Articulos",
+            "name": "se ingresa al detalle del producto \"TEST 1\" y se hace click en el boton editar",
             "match": {
-              "location": "step_definitions\\get-steps.js:9"
+              "location": "step_definitions\\put-steps.js:13"
             },
             "result": {
-              "status": "passed",
-              "duration": 215868899
+              "status": "failed",
+              "duration": 30066102299,
+              "error_message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('tbody tr:has(td:nth-child(2):text(\"TEST 1\"))')\u001b[22m\n\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\put-steps.js:17:19)"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
+            "keyword": "And ",
             "line": 12,
-            "name": "se deben mostrar todos los productos en tu cuenta",
+            "name": "se modifica el campo de \"Descripción\" a \"TEST\"",
             "match": {
-              "location": "step_definitions\\get-steps.js:14"
+              "location": "step_definitions\\put-steps.js:25"
             },
             "result": {
-              "status": "passed",
-              "duration": 913230799
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 72500799
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@get-products",
-            "line": 1
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "consulta-de-productos;consulta-exitosa-de-detalle-de-producto-individual-existente",
-        "keyword": "Scenario",
-        "line": 14,
-        "name": "Consulta exitosa de detalle de producto individual existente",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 236377500
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
-            "match": {
-              "location": "step_definitions\\get-steps.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 9047168700
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 15,
-            "name": "se navega a la sección de Articulos",
-            "match": {
-              "location": "step_definitions\\get-steps.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 190291000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 16,
-            "name": "se selecciona el producto con ID 3",
-            "match": {
-              "location": "step_definitions\\get-steps.js:24"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3004216099
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 17,
-            "name": "se debe mostrar en pantalla \"Artículo: Laptop HP 14.\"",
+            "line": 13,
+            "name": "aparece un mensaje de edición exitosa de \"TEST\" y en el sistema cambia el campo de \"Descripción\" a \"TEST\"",
             "match": {
-              "location": "step_definitions\\get-steps.js:28"
+              "location": "step_definitions\\put-steps.js:36"
             },
             "result": {
-              "status": "passed",
-              "duration": 880810399
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -145,113 +75,29 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 62160100
+              "duration": 4625505199
             }
           }
         ],
         "tags": [
           {
-            "name": "@get-products",
-            "line": 1
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "consulta-de-productos;consulta-erronea-de-detalle-de-producto-individual-inexistente",
-        "keyword": "Scenario",
-        "line": 19,
-        "name": "Consulta erronea de detalle de producto individual inexistente",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 230391800
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "el usuario ingresó con email \"testeradl@test.com\" y contraseña \"Tester@2025\", y está en el dashboard",
-            "match": {
-              "location": "step_definitions\\get-steps.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 9437873500
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 20,
-            "name": "se navega a la sección de Articulos",
-            "match": {
-              "location": "step_definitions\\get-steps.js:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 200027899
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 21,
-            "name": "se selecciona el producto con ID 999",
-            "match": {
-              "location": "step_definitions\\get-steps.js:24"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3150814400
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 22,
-            "name": "se debe mostrar un mensaje de error \"Error al cargar el artículo.\"",
-            "match": {
-              "location": "step_definitions\\get-steps.js:35"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 931254599
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 90495399
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@get-products",
+            "name": "@put-products",
             "line": 1
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "consulta-de-productos",
+    "id": "modificación-de-información-de-productos",
     "line": 2,
     "keyword": "Feature",
-    "name": "Consulta de productos",
+    "name": "Modificación de información de productos",
     "tags": [
       {
-        "name": "@get-products",
+        "name": "@put-products",
         "line": 1
       }
     ],
-    "uri": "features\\get.feature"
+    "uri": "features\\put.feature"
   }
 ]

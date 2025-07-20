@@ -20,14 +20,14 @@ Feature: Servicio de Login
   Scenario: Intento de ingreso con ambos campos vacios
 	  When el usuario ingresa "" en el campo de email
     And el usuario ingresa "" en el campo de contraseña
-	  Then se debe mostrar un mensaje de que se requiere llenado de email
+	  Then se debe mostrar un mensaje de que se requiere llenado de "email"
 
   Scenario: Intento de ingreso con campo vacío de email
 	  When el usuario ingresa "" en el campo de email
     And el usuario ingresa "Tester" en el campo de contraseña
-	  Then se debe mostrar un mensaje de que se requiere llenado de email
+	  Then se debe mostrar un mensaje de que se requiere llenado de "email"
 	  
  	Scenario: Intento de ingreso con campo vacío de contraseña
 	  When el usuario ingresa "testeradl@test.com" en el campo de email
     And el usuario ingresa "" en el campo de contraseña
-	  Then se debe mostrar un mensaje de que se requiere llenado de contraseña
+	  Then se debe mostrar un mensaje de que se requiere llenado de "password"
