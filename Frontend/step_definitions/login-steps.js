@@ -22,7 +22,8 @@ Then('se debe mostrar el dashboard del sistema', async function () {
 })
 
 Then('se debe mostrar una alerta de "Las credenciales proporcionadas son incorrectas"', async function(){
-  await this.page.locator('.Toastify__toast-container')
+  const toast = this.page.locator('.Toastify__toast-container');
+  await expect(toast).toBeVisible();
   await expect(this.page.locator('.Toastify__toast-container')).toHaveText('Las credenciales proporcionadas son incorrectas.')
 })
 

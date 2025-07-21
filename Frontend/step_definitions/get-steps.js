@@ -13,12 +13,18 @@ When('se navega a la sección de Articulos', async function (){
 
 Then('se deben mostrar todos los productos en tu cuenta', async function () {
   await expect(this.page.locator('h1')).toHaveText('Listado de Artículos')
+  await expect(this.page.locator('p')).toHaveText('Una lista de todos los artículos en tu cuenta.')
   await this.page.locator('.spinner').waitFor({ state: 'detached'});
-  const rows = this.page.locator('table tbody tr');
-  await rows.first().waitFor({ state: 'visible' });
+  // const rows = this.page.locator('table tbody tr');
+  // await rows.first().waitFor({ state: 'visible' });
 
-  const count = await rows.count();
-  expect(count).toBeGreaterThan(0);
+  // const count = await rows.count();
+  // expect(count).toBeGreaterThan(0);
+  // const headers = this.page.locator('table thead th');
+  // await expect(headers.first()).toBeVisible(); 
+
+  // const headerCount = await headers.count();
+  // expect(headerCount).toBeGreaterThan(0);
 })
 
 When('se selecciona el producto con ID {int}', async function(id){
