@@ -8,9 +8,9 @@ Feature: Modificación de información de productos
 	  Given el usuario ingresó con email "testeradl@test.com" y contraseña "Tester@2025", esta en Listado de Articulos y el producto existe
 
 	Scenario: Modificación exitosa de campo de descripcion de producto
-		When se ingresa al detalle del producto "TEST 1" y se hace click en el boton editar
-	  And se modifica el campo de "Descripción" a "TEST"
-	  Then aparece un mensaje de edición exitosa de "TEST" y en el sistema cambia el campo de "Descripción" a "TEST"
+		When se ingresa al detalle del producto "Laptop HP 14" y se hace click en el boton editar
+	  And se modifica el campo de "Descripción" a "Laptop HP 14."
+	  Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Descripción" a "Laptop HP 14."
 
 	Scenario: Modificación exitosa de campo de código de producto
 		When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
