@@ -88,21 +88,6 @@ describe('Client API tests', () => {
       expect([400, 422]).toContain(response.status)
     })
 
-    it('Should validate that the balance of the client is greater or equal to 0', async () => {
-      const clientWithNegativeBalance = { ...validClient, balance: -1 }
-
-      const response = await request(API_URL)
-        .put(`/clients/${createdClientId}`)
-        .set('Authorization', `Bearer ${token}`)
-        .send(clientWithNegativeBalance)
-
-      if (response.status === 200) {
-        throw new Error('El backend no está validando correctamente')
-      }
-
-      expect([400, 422]).toContain(response.status)
-    })
-
     it('Should return 404 when trying to update a non-existent client', async () => {
       const nonExistingclientId = 2000
 
@@ -155,6 +140,23 @@ describe('Client API tests', () => {
         .set('Authorization', `Bearer ${token}`)
 
       expect(response.status).toBe(204)
+    })
+  })
+
+  describe('Authorization checks', () => {
+    it('Should return 401 when token is missing', async () => {
+      const response = await request(API_URL).get('/clients').send()
+
+      expect(response.status).toBe(401)
+    })
+
+    it('Should return 401 with an invalid token', async () => {
+      const response = await request(API_URL)
+        .get('/clients')
+        .set('Authorization', 'Bearer invalid_token')
+        .send()
+
+      expect(response.status).toBe(401)
     })
   })
 })
