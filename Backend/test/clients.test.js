@@ -19,9 +19,36 @@ require('dotenv').config()
 
 const API_URL = process.env.API_URL
 
-const validUser = {
-  email: 'testeradl@test.com',
-  password: 'Tester@2025',
+// const validUser = {
+//   email: 'testeradl@test.com',
+//   password: 'Tester@2025',
+// }
+
+const users = {
+  validUser: {
+    email: 'testeradl@test.com',
+    password: 'Tester@2025',
+  },
+  invalidUser : {
+    email: 'testeradl1@test.com',
+    password: 'Tester@2026',
+  },
+  emptyEmail : {
+    email: '',
+    password: 'Tester@2025',
+  },
+  emptyPassword : {
+    email: 'testeradl@test.com',
+    password: '',
+  },
+  emptyUser : {
+    email: '',
+    password: '',
+  },
+  invalidEmail : {
+    email: 'testtest.com',
+    password: 'Tester@2025',
+  },
 }
 
 const uniqueEmail = `user_${Date.now()}@example.com`
@@ -44,10 +71,91 @@ describe('Client API tests', () => {
   let token
 
   beforeAll(async () => {
-    const response = await request(API_URL).post('/login').send(validUser)
+    const response = await request(API_URL).post('/login').send(users.validUser)
 
     expect(response.status).toBe(200)
+    expect (response.body).toHaveProperty("access_token")
     token = response.body.access_token
+    
+  })
+
+  describe ('Authorization process', () => {
+    // it('Validate credentials and give token', async () =>{
+    //   const response = await request(API_URL).post('/login').send(users.validUser)
+    //   expect(response.status).toBe(200)
+    //   expect (response.body).toHaveProperty("access_token")
+    // })
+
+    it('Not valid with wrong credentials', async () =>{
+      const response = await request(API_URL).post('/login').send(users.invalidUser)
+      expect(response.status).toBe(401)
+      expect(response.body.message).toBe('Las credenciales proporcionadas son incorrectas.')
+    })
+
+    it('Not valid with missing email input field', async () =>{
+      const response = await request(API_URL).post('/login').send(users.emptyEmail)
+      expect(response.status).toBe(422)
+      expect(response.body.message).toBe('Los datos proporcionados no son válidos.')
+      expect(response.body.errors.email[0]).toBe('The email field is required.')
+    })
+
+    it('Not valid with missing password input field', async () =>{
+      const response = await request(API_URL).post('/login').send(users.emptyPassword)
+      expect(response.status).toBe(422)
+      expect(response.body.message).toBe('Los datos proporcionados no son válidos.')
+      expect(response.body.errors.password[0]).toBe('The password field is required.')
+    })
+
+    it('Not valid with missing email and password input field', async () =>{
+      const response = await request(API_URL).post('/login').send(users.emptyUser)
+      expect(response.status).toBe(422)
+      console.log(response.body.errores);
+      
+      expect(response.body.message).toBe('Los datos proporcionados no son válidos.')
+      expect(response.body.errors.password[0]).toBe('The password field is required.')
+      expect(response.body.errors.email[0]).toBe('The email field is required.')
+    })
+
+    it('Not valid with wrong email', async () =>{
+      const response = await request(API_URL).post('/login').send(users.invalidEmail)
+      expect(response.status).toBe(422)
+      console.log(response.body.errores);
+      
+      expect(response.body.message).toBe('Los datos proporcionados no son válidos.')
+      expect(response.body.errors.email[0]).toBe('The email field must be a valid email address.')
+    })
+  })
+
+  describe('Get clients', () =>{
+    it('Validate response of all the list of clients', async () =>{
+      const response = await request(API_URL).get('/clients').set('Authorization', `Bearer ${token}`)
+
+      expect(response.status).toBe(200)
+      expect(Array.isArray(response.body)).toBe(true)
+
+      for(let i=0; i<response.body.length; i++){
+        expect(response.body[i]).toHaveProperty("id")
+        expect(response.body[i]).toHaveProperty("name")
+        expect(response.body[i]).toHaveProperty("cuit")
+        expect(response.body[i]).toHaveProperty("email")
+        expect(response.body[i]).toHaveProperty("phone")
+        expect(response.body[i]).toHaveProperty("address")
+        expect(response.body[i]).toHaveProperty("balance")
+        expect(response.body[i]).toHaveProperty("is_active")
+        expect(response.body[i]).toHaveProperty("created_at")
+        expect(response.body[i]).toHaveProperty("updated_at")
+        expect(response.body[i]).toHaveProperty("deleted_at")
+      }
+    })
+
+    it('Invalid response with request for a inexisting client', async () =>{
+      const response = await request(API_URL).get('/clients/0').set('Authorization', `Bearer ${token}`)
+      
+      expect(response.status).toBe(404)
+      expect(response.text).toContain('<!DOCTYPE html>')
+      expect(Array.isArray(response.text)).toBe(false)
+    })
+
   })
 
   // Describe con creacion de cliente provisional
@@ -63,7 +171,17 @@ describe('Client API tests', () => {
 
       createdClientId = response.body.id
     })
+
+    it('Validate response of an existing client with id', async () =>{
+      const response = await request(API_URL).get(`/clients/${createdClientId}`).set('Authorization', `Bearer ${token}`)
+
+      expect(response.status).toBe(200)
+      expect(Array.isArray(response.body)).toBe(false)
+      expect(response.body.id).toStrictEqual(createdClientId)
+    })
   })
+
+
 
   describe('Validate updating client', () => {
     it('Should check a valid URL ID', async () => {
