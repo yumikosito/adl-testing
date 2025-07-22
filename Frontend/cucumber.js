@@ -18,7 +18,11 @@ module.exports = {
 
         // Permite pasar parámetros a tu World personalizado.
         worldParameters: {
-            baseUrl: 'https://test-adl.leonardojose.dev'
+            baseUrl: 'https://test-adl.leonardojose.dev',
+            credentials: {
+                email: 'testeradl@test.com',
+                password: 'Tester@2025'
+    }
         },
         publishQuiet: true
     }

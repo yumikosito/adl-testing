@@ -21,9 +21,9 @@ Then('se debe mostrar el dashboard del sistema', async function () {
   await expect(this.page.locator('h1')).toHaveText('Dashboard')
 })
 
-Then('se debe mostrar una alerta de "Las credenciales proporcionadas son incorrectas"', async function(){
+Then('se debe mostrar una alerta de {string}', async function(){
   await this.page.locator('.Toastify__toast-container')
-  await expect(this.page.locator('.Toastify__toast-container')).toHaveText('Las credenciales proporcionadas son incorrectas.')
+ .toHaveText('Las credenciales proporcionadas son incorrectas.')
 })
 
 Then('se debe mostrar un mensaje de que se requiere llenado de {string}',async function (id) {
