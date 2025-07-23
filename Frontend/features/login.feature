@@ -5,12 +5,15 @@ Feature: Servicio de Login
   Para ingresar al sistema
   
   Background:
+  
 	  Given el usuario esta previamente registrado y en la pagina de login
 
   Scenario: Intento de ingreso con credenciales válidas
     When el usuario ingresa "testeradl@test.com" en el campo de email
     And el usuario ingresa "Tester@2025" en el campo de contraseña
     Then se debe mostrar el dashboard del sistema
+
+  #Caso de prueba 5 - Como usuario no registrado, quiero validar que no puedo acceder al sistema
 
 	Scenario: Intento de ingreso con credenciales inválidas
 	  When el usuario ingresa "testeradl1@test.com" en el campo de email

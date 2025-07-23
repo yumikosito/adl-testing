@@ -4,6 +4,7 @@ const LoginPage = require('../pages/LoginPage');
 const GetPage = require('../pages/GetPage');
 const fs = require('fs');
 const PutPage = require('../pages/PutPage');
+const { DeletePage } = require('../pages/DeletePage');
 // const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
 // const SecurePage = require('../step_definitions/pom/securePage');
@@ -22,6 +23,7 @@ Before(async function () {
     this.loginPage = new LoginPage(this.page);
     this.getPage = new GetPage(this.page);
     this.putPage = new PutPage(this.page);
+    this.deletePage = new DeletePage(this.page);
 });
 
 AfterStep(async function (scenario) {
