@@ -9,6 +9,5 @@ node_modules
 /reports/videos
 /reports/screenshots
 /reports
-/reports/generate-report.js
 
 .env
