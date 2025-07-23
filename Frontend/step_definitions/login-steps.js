@@ -7,9 +7,9 @@ Given('el usuario esta previamente registrado y en la pagina de login', async fu
   await expect(this.page).toHaveURL(/.*\/login/)
 })
 
-When ('el usuario ingresa {string} en el campo de email', async function (username) {
-  if (username === '<email>') username = this.parameters.credentials.email;
-  await this.loginPage.fillEmail(username)
+When ('el usuario ingresa {string} en el campo de email', async function (email) {
+  if (email === '<email>') email = this.parameters.credentials.email;
+  await this.loginPage.fillEmail(email)
   
 
 })

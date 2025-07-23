@@ -1,7 +1,9 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
 
-Given('el usuario ingresó con email {string} y contraseña {string}, y está en el dashboard', async function (username,password) {
+Given('el usuario ingresó con email {string} y contraseña {string}, y está en el dashboard', async function (email,password) {
+  if (email === '<email>') email = this.parameters.credentials.email;
+  if (password === '<password>') password = this.parameters.credentials.password;
   await this.loginPage.login(username,password)
   await expect(this.page).toHaveURL(/.*\/dashboard/);
 })

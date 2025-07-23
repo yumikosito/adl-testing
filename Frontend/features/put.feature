@@ -5,46 +5,61 @@ Feature: Modificación de información de productos
 	Para actualizar los datos de mis productos
 	
 	Background:
-	  Given el usuario ingresó con email "testeradl@test.com" y contraseña "Tester@2025", esta en Listado de Articulos y el producto existe
+	  Given el usuario ingresó con email "<email>" y contraseña "<password>", esta en Listado de Articulos y el producto existe
 
 	# Scenario: Modificación exitosa de campo de descripcion de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14" y se hace click en el boton editar
-	#   And se modifica el campo de "Descripción" a "Laptop HP 14."
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Descripción" a "Laptop HP 14."
+	# 	When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
+	#   And se modifica el campo de "<input>" a "<value>"
+	#   Then aparece un mensaje de edición exitosa y en el sistema cambia el campo de "<inputTable>" a "<value>"
+	# 	Example:
+	# 		| itemCode     | input           | value        | inputTable   |
+  #     | HP-14.1-2025 | Descripción     | Laptop HP 15 | Descripción  |
 
-	# Scenario: Modificación exitosa de campo de código de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Código (SKU)" a "HP-14.2-2025"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Código" a "HP-14.2-2025" 
+	Scenario: Modificación exitosa de campos de producto
+		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
+	  And se modifica el campo de "<input>" a "<value>"
+	  Then aparece un mensaje de edición exitosa y en el sistema cambia el campo de "<inputTable>" a "<value>"
+		Examples:
+			| itemCode     | input            | value        | inputTable   |
+      | HP-14.1-2024 | Código (SKU)     | HP-14.1-2025 | Código       |
+			| HP-14.1-2025 | Descripción      | Laptop HP 15 | Descripción  |
+      | HP-14.1-2025 | Stock actual     | 20           | Stock        |
+      | HP-14.1-2025 | Costo            | 200          | Costo        |
+      | HP-14.1-2025 | Precio venta     | 300          | Precio Venta |
+      | HP-14.1-2025 | Unidad de medida | Caja         | Unidad       |
 
-	# Scenario: Modificación exitosa de campo de stock de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Stock Actual" a "25"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Stock" a "25"
 	
-	# Scenario: Modificación exitosa de campo de costo de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Costo" a "450"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Costo" a "450"
-	  
-	# Scenario: Modificación exitosa de campo de precio venta de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Precio Venta" a "650"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Precio Venta" a "650"
+# #Pruebas negativas
+#   Scenario: Modificación inválida con texto en input tipo numérico
+# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
+# 	  And se modifica el campo de "<input>" a "<value>"
+# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
+# 		Examples:
+# 			| itemCode     | input        | value | inputTable   |
+#       | HP-14.1-2025 | Stock actual | dos   | Stock        |
+#       | HP-14.1-2025 | Costo        | tres  | Costo        |
+#       | HP-14.1-2025 | Precio venta | uno   | Precio Venta |
 
-	# Scenario: Modificación exitosa de campo de unidad de medida de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de Unidad de medida a "Unidad"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Unidad" a "Unidad"
-	  
-  Scenario: Modificación inválida de costo
-		When se ingresa al detalle del producto "IP-16-3" y se hace click en el boton editar
-	  And se modifica el campo de "Costo" a "dos"
-	  Then el campo de "Costo" queda vacío al no permitir valores no numéricos
+# #prueba negativa
+# 	Scenario: Modificación inválida con campos vacíos
+# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
+# 	  And se modifica el campo de "<input>" a ""
+# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
+# 		Examples:
+# 			| itemCode     | input            | inputTable   |
+#       | HP-14.1-2025 | Código (SKU)     | Código       |
+#       | HP-14.1-2025 | Stock actual     | Stock        |
+#       | HP-14.1-2025 | Costo            | Costo        |
+#       | HP-14.1-2025 | Precio venta     | Precio Venta |
+#       | HP-14.1-2025 | Unidad de medida | Unidad       |
 
-	 
-
- Scenario: Modificación inválida con campos vacios
-	 	When se ingresa al detalle del producto "IP-16-3" y se hace click en el boton editar
-	  And se modifica el campo de "Stock Actual" a ""
-	  Then el campo de "stock Actual" muestra un mensaje de requisito
+# #Prueba negativa
+#   Scenario: Modificación inválida con números negativos
+# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
+# 	  And se modifica el campo de "<input>" a "<value>"
+# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
+# 		Examples:
+# 			| itemCode     | input        | value | inputTable   |
+#       | HP-14.1-2025 | Stock actual | -10   | Stock        |
+#       | HP-14.1-2025 | Costo        | -100  | Costo        |
+#       | HP-14.1-2025 | Precio venta | -200  | Precio Venta |
