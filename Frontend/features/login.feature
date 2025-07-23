@@ -9,15 +9,15 @@ Feature: Servicio de Login
 	  Given el usuario esta previamente registrado y en la pagina de login
 
   Scenario: Intento de ingreso con credenciales válidas
-    When el usuario ingresa "testeradl@test.com" en el campo de email
-    And el usuario ingresa "Tester@2025" en el campo de contraseña
+    When el usuario ingresa "<email>" en el campo de email
+    And el usuario ingresa "<password>" en el campo de contraseña
     Then se debe mostrar el dashboard del sistema
 
   #Caso de prueba 5 - Como usuario no registrado, quiero validar que no puedo acceder al sistema
 
 	Scenario: Intento de ingreso con credenciales inválidas
-	  When el usuario ingresa "testeradl1@test.com" en el campo de email
-    And el usuario ingresa "Tester@2025" en el campo de contraseña
+	  When el usuario ingresa "<email>" en el campo de email
+    And el usuario ingresa "password" en el campo de contraseña
 	  Then se debe mostrar una alerta de "Las credenciales proporcionadas son incorrectas"
 
   Scenario: Intento de ingreso con ambos campos vacios
@@ -31,6 +31,6 @@ Feature: Servicio de Login
 	  Then se debe mostrar un mensaje de que se requiere llenado de "email"
 	  
  	Scenario: Intento de ingreso con campo vacío de contraseña
-	  When el usuario ingresa "testeradl@test.com" en el campo de email
+	  When el usuario ingresa "correo@correo.com" en el campo de email
     And el usuario ingresa "" en el campo de contraseña
 	  Then se debe mostrar un mensaje de que se requiere llenado de "password"

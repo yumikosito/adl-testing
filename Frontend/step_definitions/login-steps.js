@@ -8,11 +8,16 @@ Given('el usuario esta previamente registrado y en la pagina de login', async fu
 })
 
 When ('el usuario ingresa {string} en el campo de email', async function (username) {
+  if (username === '<email>') username = this.parameters.credentials.email;
   await this.loginPage.fillEmail(username)
+  
+
 })
 
 When ('el usuario ingresa {string} en el campo de contraseña', async function (password) {
+  if (password === '<password>') password = this.parameters.credentials.password;
   await this.loginPage.fillPassword(password)
+  
   await this.loginPage.clickLogin()
 })
 

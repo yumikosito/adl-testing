@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
     default: {
         // Especifica la ruta a tus archivos de features.
@@ -18,10 +19,10 @@ module.exports = {
 
         // Permite pasar parámetros a tu World personalizado.
         worldParameters: {
-            baseUrl: 'https://test-adl.leonardojose.dev',
+            baseUrl: process.env.BASE_URL,
             credentials: {
-                email: 'testeradl@test.com',
-                password: 'Tester@2025'
+                email: process.env.ADMIN_EMAIL,
+                password: process.env.ADMIN_PASSWORD
     }
         },
         publishQuiet: true

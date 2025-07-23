@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber')
 const { expect } = require('@playwright/test')
-const { ProductosPage } = require('../pages/ProductosPage')
+const { ProductosPage } = require('../pages/CreatePage')
 
 let productosPage
 
