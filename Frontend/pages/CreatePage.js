@@ -2,7 +2,7 @@ class ProductsPage {
   constructor(page) {
     this.page = page
     this.selectors = {
-      createProductButton: 'button:has-text("Crear Articulo")',
+      createProductButton: 'button:has-text("Crear Artículo")',
       inputSKU: '#sku',
       inputDescription: '#name',
       inputActualStock: '#stock_quantity',
@@ -11,7 +11,7 @@ class ProductsPage {
       inputUnit: '#unit',
       saveProductButton: 'button:has-text("Guardar Cambios")',
       successMessage: '[data-in="true"]',
-      productsList: 'tbody tr',
+      productsList: 'tbody td',
     }
   }
 
@@ -31,8 +31,14 @@ class ProductsPage {
 
     for (const field in fields) {
       const selector = fieldMap[field]
-      if (selector) {
-        await this.page.fill(selector, fields[field].toString())
+      const value = fields[field].toString()
+
+      if (!selector) continue
+
+      if (field === 'Unidad de medida') {
+        await this.page.selectOption(selector, { label: value })
+      } else {
+        await this.page.fill(selector, value)
       }
     }
   }
@@ -42,24 +48,16 @@ class ProductsPage {
   }
 
   async getSuccessMessage() {
-    await this.page.waitForSelector(this.selectors.successMessage, {
-      state: 'visible',
-    })
-    return this.page.textContent(this.selectors.successMessage)
+    const toast = this.page.locator(this.selectors.successMessage)
+    return await toast.textContent()
   }
 
-  async getErrorMessage() {
-    await this.page.waitForSelector(this.selectors.successMessage, {
-      state: 'visible',
+  async checkCreatedProduct(sku) {
+    const productCell = this.page.locator(this.selectors.productsList, {
+      hasText: sku,
     })
-    return this.page.textContent(this.selectors.errorMessage)
-  }
-
-  async checkCreatedProduct(name) {
-    const product = this.page.locator(`${this.selectors.productsList}`, {
-      hasText: name,
-    })
-    return await product.isVisible()
+    await productCell.waitFor({ state: 'visible', timeout: 5000 })
+    return await productCell.isVisible()
   }
 }
 

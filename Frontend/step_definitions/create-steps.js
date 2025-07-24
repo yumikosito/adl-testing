@@ -6,9 +6,10 @@ Given(
   'el usuario ingresó con email {string} y contraseña {string} validos, navegó a lista de artículos e hizo click en registrar artículo',
   async function (username, password) {
     await this.loginPage.login(username, password)
+    await expect(this.page).toHaveURL(/.*\/dashboard/)
     await this.getPage.goToProducts()
     await expect(this.page).toHaveURL(/.*\/articulos/)
-    await productsPage.createProduct()
+    await this.productsPage.createProduct()
     await expect(this.page).toHaveURL(/.*\/articulos\/nuevo/)
   }
 )
@@ -17,20 +18,20 @@ When(
   'el usuario completa y envía el formulario con:',
   async function (dataTable) {
     const data = Object.fromEntries(dataTable.rows())
-    await productsPage.fillForm(data)
-    await productsPage.saveProduct()
+    await this.productsPage.fillForm(data)
+    await this.productsPage.saveProduct()
   }
 )
 
 Then('debería ver un mensaje {string}', async function (expectedMessage) {
-  const message = await productsPage.getSuccessMessage()
+  const message = await this.productsPage.getSuccessMessage()
   expect(message).toContain(expectedMessage)
 })
 
 Then(
   'el nuevo producto {string} debería aparecer en la listado',
   async function (newProduct) {
-    const product = await productsPage.checkCreatedProduct(newProduct)
+    const product = await this.productsPage.checkCreatedProduct(newProduct)
     expect(product).toBeTruthy()
   }
 )

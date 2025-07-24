@@ -5,7 +5,7 @@ Feature: Registro de productos
     Para registrar un nuevo producto con sus datos completos
 
   Background:
-    Given el usuario ingresó con email "<email>" y contraseña "<password>" validos, navegó a lista de artículos e hizo click en registrar artículo
+    Given el usuario ingresó con email "testeradl@test.com" y contraseña "Tester@2025" validos, navegó a lista de artículos e hizo click en registrar artículo
 
   Scenario: Registrar un nuevo producto con datos válidos
     When el usuario completa y envía el formulario con:
@@ -16,8 +16,8 @@ Feature: Registro de productos
       | Costo           | 900             |
       | Precio de venta | 1200            |
       | Unidad de medida| Unidad          |
-    Then debería ver un mensaje 'Artículo iPhone 16 creado con éxito'
-    And el nuevo producto "iPhone 16" debería aparecer en la listado
+    Then debería ver un mensaje 'Articulo "iPhone 16" creado con éxito!'
+    And el nuevo producto "IPH16-001" debería aparecer en la listado
 
  # Scenario: Intentar registrar un producto sin descripción
  #    Given el usuario hace click en el botón "Entidades"
