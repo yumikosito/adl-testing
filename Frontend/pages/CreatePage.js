@@ -1,68 +1,64 @@
-class ProductosPage {
+class ProductsPage {
   constructor(page) {
     this.page = page
     this.selectors = {
-      btnCrearArticulo: 'selector-para-boton-crear-articulo',
-      inputCodigoSKU: 'selector-para-input-codigo-sku',
-      inputDescripcion: 'selector-para-input-descripcion',
-      inputStockActual: 'selector-para-input-stock',
-      inputCosto: 'selector-para-input-costo',
-      inputPrecioVenta: 'selector-para-input-precio-venta',
-      inputUnidadMedida: 'selector-para-input-unidad-medi',
-      btnGuardarCambios: 'selector-para-boton-guard',
-      mensajeExito: 'selector-para-mensaje-exito',
-      mensajeError: 'selector-para-mensaje-err',
-      listaProductos: 'selector-para-lista-productos',
+      createProductButton: 'button:has-text("Crear Artículo")',
+      inputSKU: '#sku',
+      inputDescription: '#name',
+      inputActualStock: '#stock_quantity',
+      inputCost: '#cost_price',
+      inputSaleCost: '#sale_price',
+      inputUnit: '#unit',
+      saveProductButton: 'button:has-text("Guardar Cambios")',
+      successMessage: '[data-in="true"]',
+      productsList: 'tbody td',
     }
   }
 
-  async clickCrearArticulo() {
-    await this.page.click(this.btnCrearArticulo)
+  async createProduct() {
+    await this.page.click(this.selectors.createProductButton)
   }
 
-  async completarFormulario(campos) {
-    if (campos['Código SKU']) {
-      await this.page.fill(this.inputCodigoSKU, campos['Código SKU'])
+  async fillForm(fields) {
+    const fieldMap = {
+      'Código SKU': this.selectors.inputSKU,
+      'Descripción': this.selectors.inputDescription,
+      'Stock actual': this.selectors.inputActualStock,
+      'Costo': this.selectors.inputCost,
+      'Precio de venta': this.selectors.inputSaleCost,
+      'Unidad de medida': this.selectors.inputUnit,
     }
-    if (campos['Descripción']) {
-      await this.page.fill(this.inputDescripcion, campos['Descripción'])
-    }
-    if (campos['Stock actual']) {
-      await this.page.fill(
-        this.inputStockActual,
-        campos['Stock actual'].toString()
-      )
-    }
-    if (campos['Costo']) {
-      await this.page.fill(this.inputCosto, campos['Costo'].toString())
-    }
-    if (campos['Precio de venta']) {
-      await this.page.fill(
-        this.inputPrecioVenta,
-        campos['Precio de venta'].toString()
-      )
-    }
-    if (campos['Unidad de medida']) {
-      await this.page.fill(this.inputUnidadMedida, campos['Unidad de medida'])
+
+    for (const field in fields) {
+      const selector = fieldMap[field]
+      const value = fields[field].toString()
+
+      if (!selector) continue
+
+      if (field === 'Unidad de medida') {
+        await this.page.selectOption(selector, { label: value })
+      } else {
+        await this.page.fill(selector, value)
+      }
     }
   }
 
-  async guardarCambios() {
-    await this.page.click(this.btnGuardarCambios)
+  async saveProduct() {
+    await this.page.click(this.selectors.saveProductButton)
   }
 
-  async obtenerMensajeExito() {
-    return this.page.textContent(this.mensajeExito)
+  async getSuccessMessage() {
+    const toast = this.page.locator(this.selectors.successMessage)
+    return await toast.textContent()
   }
 
-  async obtenerMensajeError() {
-    return this.page.textContent(this.mensajeError)
-  }
-
-  async productoExiste(nombre) {
-    const texto = await this.page.textContent(this.listaProductos)
-    return texto.includes(nombre)
+  async checkCreatedProduct(sku) {
+    const productCell = this.page.locator(this.selectors.productsList, {
+      hasText: sku,
+    })
+    await productCell.waitFor({ state: 'visible', timeout: 5000 })
+    return await productCell.isVisible()
   }
 }
 
-module.exports = { ProductosPage }
+module.exports = { ProductsPage }
