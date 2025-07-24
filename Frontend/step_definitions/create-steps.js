@@ -3,12 +3,8 @@ const { expect } = require('@playwright/test')
 
 // Background
 Given(
-  'el usuario ingresó con email {string} y contraseña {string} validos, navegó a lista de artículos e hizo click en registrar artículo',
-  async function (username, password) {
-    await this.loginPage.login(username, password)
-    await expect(this.page).toHaveURL(/.*\/dashboard/)
-    await this.getPage.goToProducts()
-    await expect(this.page).toHaveURL(/.*\/articulos/)
+  'hizo click en registrar artículo',
+  async function () {
     await this.productsPage.createProduct()
     await expect(this.page).toHaveURL(/.*\/articulos\/nuevo/)
   }
@@ -24,6 +20,7 @@ When(
 )
 
 Then('debería ver un mensaje {string}', async function (expectedMessage) {
+  await this.page.waitForTimeout(5000);
   const message = await this.productsPage.getSuccessMessage()
   expect(message).toContain(expectedMessage)
 })
