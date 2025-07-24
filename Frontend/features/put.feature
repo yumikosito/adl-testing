@@ -32,7 +32,7 @@ Feature: Modificación de información de productos
 			| value        |
 			| HP-14.1-2027 |
 
-#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+#Prueba negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
 	Scenario: Modificacion invalida de <input> con campos vacios
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a ""
@@ -44,7 +44,7 @@ Feature: Modificación de información de productos
       | Costo        | 
       | Precio venta |
 
-#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+#Prueba negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
 	Scenario: Modificacion invalida de <input> con texto en input tipo numerico
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a "<value>"
