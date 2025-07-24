@@ -10,12 +10,14 @@ Given('esta en la página debe Listado de Articulos', async function (){
   await expect(this.page).toHaveURL(/.*\/articulos/)
 })
 
+
 Given('el producto con código {string} existe', async function (product){
   if (productCode == null){
     productCode = product
   }
   tableTR = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${productCode}"))`);
 })
+
 
 When ('se ingresa al detalle del producto y se navega a la página de edición', async function () {
   await this.page.locator('.spinner').waitFor({ state: 'detached'});
@@ -36,8 +38,8 @@ When ('se ingresa al detalle del producto y se navega a la página de edición',
     await expect(this.page.locator('h3')).toHaveText('No hay artículos')
     console.log("No hay artículos en la cuenta del usuario"); 
   }
-  
 })
+
 
 When ('se modifica el campo de {string} a {string}', async function (selectInput,edit) {
   if(selectInput =='Unidad de medida'){
@@ -52,7 +54,6 @@ When ('se modifica el campo de {string} a {string}', async function (selectInput
       await input.press(char);
     }
   }
-
 })
 
 
@@ -65,7 +66,6 @@ Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de
   await this.page.locator('.Toastify__toast-container')
   await expect(this.page.locator('.Toastify__toast-container')).toContainText(/actualizado con éxito!/)
   await expect(this.page).toHaveURL(/.*\/articulos/)
- 
 
   if (input == 'Código'){
     const col = await tableTR.locator('td').nth(0)
@@ -92,6 +92,7 @@ Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de
     await expect(col).toHaveText(edit)
   }
 })
+
 
 Then('el campo de {string} queda vacío al no ser número válido', async function (input){
   await expect(this.page.getByLabel(input)).toHaveValue('')

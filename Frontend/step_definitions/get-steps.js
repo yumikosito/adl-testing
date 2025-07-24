@@ -1,22 +1,26 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
 
+
 Given('el usuario ingresó con email {string} y contraseña {string}', async function (email,password) {
   if (email === '<email>') email = this.parameters.credentials.email;
   if (password === '<password>') password = this.parameters.credentials.password;
   await this.loginPage.login(email,password)
 })
 
+
 Given('está en la página de dashboard', async function(){
   await expect(this.page).toHaveURL(/.*\/dashboard/);
   await expect(this.page.locator('h1')).toHaveText('Dashboard')
- await expect(this.page.getByText('Bienvenido al sistema ERP.')).toBeVisible();
+  await expect(this.page.getByText('Bienvenido al sistema ERP.')).toBeVisible();
 })
+
 
 When('se navega a la sección de Articulos', async function (){
   await this.getPage.goToProducts()
   await expect(this.page).toHaveURL(/.*\/articulos/)
 })
+
 
 Then('se deben mostrar todos los productos en tu cuenta', async function () {
   await expect(this.page.locator('h1')).toHaveText('Listado de Artículos')
@@ -41,15 +45,18 @@ Then('se deben mostrar todos los productos en tu cuenta', async function () {
   }
 })
 
+
 When('se selecciona el producto con ID {string}', async function(id){
   await this.page.goto(`/articulos/${id}`);
 })
+
 
 Then('se debe mostrar en pantalla {string}', async function(product){
   await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
   await expect(this.page.locator('h3')).toHaveText(product)
   await expect(this.page.locator('p')).toHaveText('Detalles completos del registro seleccionado.')
 })
+
 
 Then('se debe mostrar un mensaje de error {string}', async function(error){
   if(error == "Error al guardar el artículo."){
@@ -58,5 +65,4 @@ Then('se debe mostrar un mensaje de error {string}', async function(error){
   await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
   await this.page.waitForTimeout(5000);
   await expect(this.page.locator('div.text-red-500')).toHaveText(error);
-
 })

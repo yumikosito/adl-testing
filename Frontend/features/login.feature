@@ -5,7 +5,6 @@ Feature: Servicio de Login
   Para ingresar al sistema
   
   Background:
-  
 	  Given el usuario esta previamente registrado y en la pagina de login
 
   Scenario: Intento de ingreso con credenciales válidas
