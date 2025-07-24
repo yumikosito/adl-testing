@@ -17,7 +17,7 @@ Feature: Modificación de información de productos
 			| input            | value        | inputTable   |
       | Código (SKU)     | HP-14.1-2026 | Código       |
 			| Descripción      | Laptop HP 15 | Descripción  |
-      | Stock actual     | 20           | Stock        |
+      | Stock Actual     | 20           | Stock        |
       | Costo            | 200          | Costo        |
       | Precio venta     | 300          | Precio Venta |
       | Unidad de medida | Caja         | Unidad       |
@@ -32,37 +32,46 @@ Feature: Modificación de información de productos
 			| value        |
 			| HP-14.1-2027 |
 
-# #Pruebas negativas
-#   Scenario: Modificación inválida con texto en input tipo numérico
-# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
-# 	  And se modifica el campo de "<input>" a "<value>"
-# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
-# 		Examples:
-# 			| itemCode     | input        | value | inputTable   |
-#       | HP-14.1-2025 | Stock actual | dos   | Stock        |
-#       | HP-14.1-2025 | Costo        | tres  | Costo        |
-#       | HP-14.1-2025 | Precio venta | uno   | Precio Venta |
+	Scenario: Modificación inválida con campos vacíos
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a ""
+	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | 
+			| Descripción  | 
+      | Stock Actual | 
+      | Costo        | 
+      | Precio venta |
 
-# #prueba negativa
-# 	Scenario: Modificación inválida con campos vacíos
-# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
-# 	  And se modifica el campo de "<input>" a ""
-# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
-# 		Examples:
-# 			| itemCode     | input            | inputTable   |
-#       | HP-14.1-2025 | Código (SKU)     | Código       |
-#       | HP-14.1-2025 | Stock actual     | Stock        |
-#       | HP-14.1-2025 | Costo            | Costo        |
-#       | HP-14.1-2025 | Precio venta     | Precio Venta |
-#       | HP-14.1-2025 | Unidad de medida | Unidad       |
 
-# #Prueba negativa
-#   Scenario: Modificación inválida con números negativos
-# 		When se ingresa al detalle del producto "<itemCode>" y se hace click en el boton editar
-# 	  And se modifica el campo de "<input>" a "<value>"
-# 	  Then el campo de "<input>" muestra un mensaje de requisito no válido
-# 		Examples:
-# 			| itemCode     | input        | value | inputTable   |
-#       | HP-14.1-2025 | Stock actual | -10   | Stock        |
-#       | HP-14.1-2025 | Costo        | -100  | Costo        |
-#       | HP-14.1-2025 | Precio venta | -200  | Precio Venta |
+  Scenario: Modificación inválida con texto en input tipo numérico
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+	  Then el campo de "<input>" queda vacío al no ser número válido
+		And se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | value | inputTable   |
+      | Stock Actual | dos   | Stock        |
+      | Costo        | dos   | Costo        |
+      | Precio venta | dos   | Precio Venta |
+
+
+# Prueba negativa, no debería dejar poner campos negativos
+  Scenario: Modificación inválida con números negativos
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+		Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | value | inputTable   |
+      | Stock Actual | -10   | Stock        |
+      | Costo        | -100  | Costo        |
+      | Precio venta | -200  | Precio Venta |
+
+# Prueba negativa en SKU, no debería dejar guardar con campo en blanco
+	Scenario: Modificación inválida con campos vacío de SKU
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a ""
+	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | 
+      | Código (SKU) | 

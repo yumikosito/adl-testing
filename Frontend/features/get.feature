@@ -23,5 +23,9 @@ Feature: Consulta de productos
 
   Scenario: Consulta erronea de detalle de producto individual inexistente
     When se navega a la sección de Articulos
-    And se selecciona el producto con ID 0
+    And se selecciona el producto con ID "<id>"
     Then se debe mostrar un mensaje de error "Error al cargar el artículo."
+    Examples:
+    | id   | 
+    | 0    | 
+    | 1003 |

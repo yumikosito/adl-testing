@@ -95,16 +95,8 @@ Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de
 })
 
 
-Then('el campo de {string} muestra un mensaje de requisito no válido', async function (input){
-  await this.putPage.clickSave()
-  await this.page.waitForTimeout(5000);
-
-  const inputField = this.page.getByLabel(input);
-  const isValid = await inputField.evaluate(item => item.checkValidity());
-  expect(isValid).toBe(false);
-  await expect(this.page).toHaveURL(/.*\/editar/)
-
-
+Then('el campo de {string} queda vacío al no ser número válido', async function (input){
+  await expect(this.page.getByLabel(input)).toHaveValue('')
 })
 
 
