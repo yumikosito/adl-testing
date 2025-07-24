@@ -1,37 +1,41 @@
-const { Given, When, Then, AfterStep } = require('@cucumber/cucumber');
+const { Given, When, Then, AfterStep, AfterAll } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
 
 let tableTR;
+let productCode;
 
-Given('el usuario ingresó con email {string} y contraseña {string}, esta en Listado de Articulos y el producto existe', async function (email, password) {
-  if (email === '<email>') email = this.parameters.credentials.email;
-  if (password === '<password>') password = this.parameters.credentials.password;
-  await this.loginPage.login(email,password)
+
+Given('esta en la página debe Listado de Articulos', async function (){
   await this.getPage.goToProducts()
   await expect(this.page).toHaveURL(/.*\/articulos/)
 })
 
+Given('el producto con código {string} existe', async function (product){
+  if (productCode == null){
+    productCode = product
+  }
+  tableTR = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${productCode}"))`);
+})
 
-When (/^se ingresa al detalle del producto "([^"]+)" y se hace click en el boton editar$/, async function (product) {
+
+When ('se ingresa al detalle del producto y se navega a la página de edición', async function () {
   await this.page.locator('.spinner').waitFor({ state: 'detached'});
   await this.page.waitForTimeout(5000);
   const isVisible = await this.page.locator('button', { hasText: 'Código' }).isVisible();
   
   if (isVisible) {
-    const productTr = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${product}"))`);
-    const productName = await productTr.locator('td:nth-child(2)').innerText();
-    
-    tableTR = productTr
-    await productTr.click();
+    const productName = await tableTR.locator('td:nth-child(2)').innerText();
+    await tableTR.click();
     await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
     
     await expect(this.page.locator('h3')).toHaveText(`Artículo: ${productName}`)
     await this.putPage.clickEdit()
     await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
-    await expect(this.page.getByLabel('Código')).toHaveValue(product)
+    await expect(this.page.getByLabel('Código (SKU)')).toHaveValue(productCode)
 
   } else {
     await expect(this.page.locator('h3')).toHaveText('No hay artículos')
+    console.log("No hay artículos en la cuenta del usuario"); 
   }
   
 })
@@ -54,10 +58,15 @@ When ('se modifica el campo de {string} a {string}', async function (selectInput
 
 
 Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de {string} a {string}', async function (input, edit) {
+  if(input =='Código') {
+    productCode = edit
+    tableTR = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${productCode}"))`);
+  }
   await this.putPage.clickSave()
   await this.page.locator('.Toastify__toast-container')
   await expect(this.page.locator('.Toastify__toast-container')).toContainText(/actualizado con éxito!/)
   await expect(this.page).toHaveURL(/.*\/articulos/)
+ 
 
   if (input == 'Código'){
     const col = await tableTR.locator('td').nth(0)
@@ -83,8 +92,6 @@ Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de
     const col = await tableTR.locator('td').nth(5)
     await expect(col).toHaveText(edit)
   }
-
-  tableTR=''
 })
 
 

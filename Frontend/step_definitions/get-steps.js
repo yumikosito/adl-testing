@@ -52,7 +52,11 @@ Then('se debe mostrar en pantalla {string}', async function(product){
 })
 
 Then('se debe mostrar un mensaje de error {string}', async function(error){
+  if(error == "Error al guardar el artículo."){
+    await this.putPage.clickSave()
+  }
   await this.page.locator('text=Cargando detalle del artículo').waitFor({ state: 'detached' });
+  await this.page.waitForTimeout(5000);
   await expect(this.page.locator('div.text-red-500')).toHaveText(error);
 
 })

@@ -57,6 +57,8 @@ After(async function (scenario) {
     // const videoPath = await this.page.video()?.path();
 
     await this.cleanup();
+    productCode=null
+    tableTR=null
 
     // if (videoPath) {
     //     const scenarioName = scenario.pickle.name.replace(/[^a-zA-Z0-9]/g, '_');
