@@ -34,3 +34,8 @@ Feature: Servicio de Login
 	  When el usuario ingresa "correo@correo.com" en el campo de email
     And el usuario ingresa "" en el campo de contraseña
 	  Then se debe mostrar un mensaje de que se requiere llenado de "password"
+
+  Scenario: Intento de recuperar contraseña
+	  When el usuario ingresa a la página de Recuperar contraseña
+    And el usuario ingresa "<email>" en el campo de email
+	  Then se debe mostrar una alerta de "Si existe una cuenta con ese email, recibirás un correo con las instrucciones."

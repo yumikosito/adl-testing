@@ -37,6 +37,10 @@ class LoginPage {
     await this.page.getByRole('button', { name: 'Cerrar Sesión' }).click();
   }
 
+  async clickRecover() {
+    await this.page.getByRole('button', { name: 'Solicitar Enlace' }).click();
+  }
+
 }
 
 module.exports = LoginPage;
