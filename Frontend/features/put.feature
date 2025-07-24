@@ -5,46 +5,82 @@ Feature: Modificación de información de productos
 	Para actualizar los datos de mis productos
 	
 	Background:
-	  Given el usuario ingresó con email "testeradl@test.com" y contraseña "Tester@2025", esta en Listado de Articulos y el producto existe
+	  Given el usuario ingresó con email "<email>" y contraseña "<password>"
+		And esta en la página debe Listado de Articulos
+		And el producto con código "HP-14.1-2025" existe
 
-	# Scenario: Modificación exitosa de campo de descripcion de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14" y se hace click en el boton editar
-	#   And se modifica el campo de "Descripción" a "Laptop HP 14."
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Descripción" a "Laptop HP 14."
-
-	# Scenario: Modificación exitosa de campo de código de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Código (SKU)" a "HP-14.2-2025"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Código" a "HP-14.2-2025" 
-
-	# Scenario: Modificación exitosa de campo de stock de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Stock Actual" a "25"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Stock" a "25"
+	Scenario: Modificacion exitosa de campo <input> de producto
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+	  Then aparece un mensaje de edición exitosa y en el sistema cambia el campo de "<inputTable>" a "<value>"
+		Examples:
+			| input            | value        | inputTable   |
+      | Código (SKU)     | HP-14.1-2026 | Código       |
+			| Descripción      | Laptop HP 15 | Descripción  |
+      | Stock Actual     | 20           | Stock        |
+      | Costo            | 200          | Costo        |
+      | Precio venta     | 300          | Precio Venta |
+      | Unidad de medida | Caja         | Unidad       |
+			| Unidad de medida | Kg           | Unidad       |
+			| Unidad de medida | Unidad       | Unidad       |
 	
-	# Scenario: Modificación exitosa de campo de costo de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Costo" a "450"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Costo" a "450"
-	  
-	# Scenario: Modificación exitosa de campo de precio venta de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de "Precio Venta" a "650"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Precio Venta" a "650"
+	Scenario: Modificacion invalida por codigo (SKU) <value> en uso "
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "Código (SKU)" a "<value>"
+	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| value        |
+			| HP-14.1-2027 |
 
-	# Scenario: Modificación exitosa de campo de unidad de medida de producto
-	# 	When se ingresa al detalle del producto "Laptop HP 14." y se hace click en el boton editar
-	#   And se modifica el campo de Unidad de medida a "Unidad"
-	#   Then aparece un mensaje de edición exitosa de "Laptop HP 14." y en el sistema cambia el campo de "Unidad" a "Unidad"
-	  
-  Scenario: Modificación inválida de costo
-		When se ingresa al detalle del producto "IP-16-3" y se hace click en el boton editar
-	  And se modifica el campo de "Costo" a "dos"
-	  Then el campo de "Costo" queda vacío al no permitir valores no numéricos
+#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+	Scenario: Modificacion invalida de <input> con campos vacios
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a ""
+	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | 
+			| Descripción  | 
+      | Stock Actual | 
+      | Costo        | 
+      | Precio venta |
 
-	 
+#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+	Scenario: Modificacion invalida de <input> con texto en input tipo numerico
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+	  Then el campo de "<input>" queda vacío al no ser número válido
+		And se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | value | inputTable   |
+      | Stock Actual | dos   | Stock        |
+      | Costo        | dos   | Costo        |
+      | Precio venta | dos   | Precio Venta |
 
- Scenario: Modificación inválida con campos vacios
-	 	When se ingresa al detalle del producto "IP-16-3" y se hace click en el boton editar
-	  And se modifica el campo de "Stock Actual" a ""
-	  Then el campo de "stock Actual" muestra un mensaje de requisito
+# Prueba negativa, no debería dejar vacío (1 caso)
+  Scenario: Modificacion invalida de <input> 
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+		And se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input            | value      |
+      | Unidad de medida | Selecciona |
+
+# Prueba negativa, no debería dejar poner campos negativos (3 casos)
+  Scenario: Modificacion invalida de <input> con numeros negativos
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+		Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        | value | inputTable   |
+      | Stock Actual | -10   | Stock        |
+      | Costo        | -100  | Costo        |
+      | Precio venta | -200  | Precio Venta |
+
+# Prueba negativa en SKU, no debería dejar guardar con campo en blanco (1 caso)
+	Scenario: Modificacion invalida de <input> con campos vacio
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a ""
+	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input        |
+      | Código (SKU) |

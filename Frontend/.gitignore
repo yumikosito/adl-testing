@@ -10,3 +10,6 @@ node_modules
 /reports/videos
 /reports/screenshots
 /reports
+
+.env
+/ reports/cucumber-report.html
