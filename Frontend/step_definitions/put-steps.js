@@ -17,7 +17,6 @@ Given('el producto con código {string} existe', async function (product){
   tableTR = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${productCode}"))`);
 })
 
-
 When ('se ingresa al detalle del producto y se navega a la página de edición', async function () {
   await this.page.locator('.spinner').waitFor({ state: 'detached'});
   await this.page.waitForTimeout(5000);
@@ -94,9 +93,6 @@ Then ('aparece un mensaje de edición exitosa y en el sistema cambia el campo de
   }
 })
 
-
 Then('el campo de {string} queda vacío al no ser número válido', async function (input){
   await expect(this.page.getByLabel(input)).toHaveValue('')
 })
-
-

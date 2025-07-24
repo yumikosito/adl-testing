@@ -2,7 +2,13 @@ require('dotenv').config()
 module.exports = {
     default: {
         // Especifica la ruta a tus archivos de features.
-        paths: ['features/**/*.feature'],
+        paths: ['features/**/*.feature'
+            // 'features/login.feature',
+            // 'feature/get.feature',
+            // 'feature/create.product.feature',
+            // 'feature/put.feature',
+            // 'feature/delete.feature'
+        ],
 
         // Le dice a Cucumber dónde encontrar tus definiciones de pasos y archivos de soporte.
         require: [

@@ -9,7 +9,7 @@ Feature: Modificación de información de productos
 		And esta en la página debe Listado de Articulos
 		And el producto con código "HP-14.1-2025" existe
 
-	Scenario: Modificación exitosa de campos de producto
+	Scenario: Modificacion exitosa de campo <input> de producto
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a "<value>"
 	  Then aparece un mensaje de edición exitosa y en el sistema cambia el campo de "<inputTable>" a "<value>"
@@ -24,7 +24,7 @@ Feature: Modificación de información de productos
 			| Unidad de medida | Kg           | Unidad       |
 			| Unidad de medida | Unidad       | Unidad       |
 	
-	Scenario: Modificación inválida por código (SKU) en uso
+	Scenario: Modificacion invalida por codigo (SKU) <value> en uso "
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "Código (SKU)" a "<value>"
 	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
@@ -32,7 +32,8 @@ Feature: Modificación de información de productos
 			| value        |
 			| HP-14.1-2027 |
 
-	Scenario: Modificación inválida con campos vacíos
+#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+	Scenario: Modificacion invalida de <input> con campos vacios
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a ""
 	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
@@ -43,8 +44,8 @@ Feature: Modificación de información de productos
       | Costo        | 
       | Precio venta |
 
-
-  Scenario: Modificación inválida con texto en input tipo numérico
+#Pruena negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
+	Scenario: Modificacion invalida de <input> con texto en input tipo numerico
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a "<value>"
 	  Then el campo de "<input>" queda vacío al no ser número válido
@@ -55,9 +56,17 @@ Feature: Modificación de información de productos
       | Costo        | dos   | Costo        |
       | Precio venta | dos   | Precio Venta |
 
+# Prueba negativa, no debería dejar vacío (1 caso)
+  Scenario: Modificacion invalida de <input> 
+		When se ingresa al detalle del producto y se navega a la página de edición
+	  And se modifica el campo de "<input>" a "<value>"
+		And se debe mostrar un mensaje de error "Error al guardar el artículo."
+		Examples:
+			| input            | value      |
+      | Unidad de medida | Selecciona |
 
-# Prueba negativa, no debería dejar poner campos negativos
-  Scenario: Modificación inválida con números negativos
+# Prueba negativa, no debería dejar poner campos negativos (3 casos)
+  Scenario: Modificacion invalida de <input> con numeros negativos
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a "<value>"
 		Then se debe mostrar un mensaje de error "Error al guardar el artículo."
@@ -67,11 +76,11 @@ Feature: Modificación de información de productos
       | Costo        | -100  | Costo        |
       | Precio venta | -200  | Precio Venta |
 
-# Prueba negativa en SKU, no debería dejar guardar con campo en blanco
-	Scenario: Modificación inválida con campos vacío de SKU
+# Prueba negativa en SKU, no debería dejar guardar con campo en blanco (1 caso)
+	Scenario: Modificacion invalida de <input> con campos vacio
 		When se ingresa al detalle del producto y se navega a la página de edición
 	  And se modifica el campo de "<input>" a ""
 	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
 		Examples:
-			| input        | 
-      | Código (SKU) | 
+			| input        |
+      | Código (SKU) |

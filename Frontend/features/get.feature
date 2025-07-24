@@ -12,16 +12,16 @@ Feature: Consulta de productos
     When se navega a la sección de Articulos
     Then se deben mostrar todos los productos en tu cuenta
 
-  Scenario: Consulta exitosa de detalle de producto individual existente
+  Scenario: Consulta exitosa de detalle de producto con id <id> existente
     When se navega a la sección de Articulos
     And se selecciona el producto con ID "<id>"
     Then se debe mostrar en pantalla "Artículo: <item>"
     Examples:
     | id   | item         |
-    | 945  | Iphone 16    |
-    | 1003 | Laptop HP 14 |
+    # | 945  | Iphone 16    |
+    | 1128 | Laptop HP 14 |
 
-  Scenario: Consulta erronea de detalle de producto individual inexistente
+  Scenario: Consulta erronea de detalle de producto con id <id> inexistente
     When se navega a la sección de Articulos
     And se selecciona el producto con ID "<id>"
     Then se debe mostrar un mensaje de error "Error al cargar el artículo."
