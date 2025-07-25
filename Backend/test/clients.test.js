@@ -229,7 +229,9 @@ describe('Client API tests', () => {
         .send({})
 
       if (response.status === 200) {
-        throw new Error('El backend no está validando correctamente')
+        throw new Error(
+          'El backend no está validando correctamente el envio ausente de datos'
+        )
       }
 
       expect([400, 422]).toContain(response.status)
@@ -246,11 +248,40 @@ describe('Client API tests', () => {
       expect(response.status).toBe(404)
     })
 
-    // Fallara porque no puede pasar a decimal el valor
-    it('Should display error messages when trying to update balance client using text', () => {})
+    it('Should display error messages when trying to update balance client using text', async () => {
+      const updatedClient = {
+        ...validClient,
+        balance: 'letras',
+      }
 
-    // No valida email y pasa
-    it('Should display error messages when trying to update email client using an incorrect email format', () => {})
+      const response = await request(API_URL)
+        .put(`/clients/${createdClientId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send(updatedClient)
+
+      expect(response.status).toBe(500)
+      expect(response.text).toContain('Unable to cast value to a decimal')
+    })
+
+    it('Should display error messages when trying to update email client using an incorrect email format', async () => {
+      const updatedClient = {
+        ...validClient,
+        email: 'correo-invalido',
+      }
+
+      const response = await request(API_URL)
+        .put(`/clients/${createdClientId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send(updatedClient)
+
+      if (response.status === 200) {
+        throw new Error(
+          'El backend no está validando correctamente el formato de email'
+        )
+      }
+
+      expect([400, 422]).toContain(response.status)
+    })
 
     it('Should update an existing client with valid data', async () => {
       const updatedClient = {
