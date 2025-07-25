@@ -10,7 +10,7 @@ class ProductsPage {
       inputSaleCost: '#sale_price',
       inputUnit: '#unit',
       saveProductButton: 'button:has-text("Guardar Cambios")',
-      successMessage: '[data-in="true"]',
+      productNotification: '[data-in="true"]',
       productsList: 'tbody td',
     }
   }
@@ -47,16 +47,15 @@ class ProductsPage {
     await this.page.click(this.selectors.saveProductButton)
   }
 
-  async getSuccessMessage() {
-    const toast = this.page.locator(this.selectors.successMessage)
-    return await toast.textContent()
+  getMessageLocator() {
+    return this.page.locator(this.selectors.productNotification)
   }
 
   async checkCreatedProduct(sku) {
     const productCell = this.page.locator(this.selectors.productsList, {
       hasText: sku,
     })
-    await productCell.waitFor({ state: 'visible', timeout: 5000 })
+    await productCell.waitFor({ state: 'visible' })
     return await productCell.isVisible()
   }
 }
