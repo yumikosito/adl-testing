@@ -7,7 +7,7 @@ Feature: Modificación de información de productos
 	Background:
 	  Given el usuario ingresó con email "<email>" y contraseña "<password>"
 		And esta en la página debe Listado de Articulos
-		And el producto con código "HP-14.1-2025" existe
+		And el producto con código "IPH16-005" existe
 
 	Scenario: Modificacion exitosa de campo <input> de producto
 		When se ingresa al detalle del producto y se navega a la página de edición
@@ -16,7 +16,7 @@ Feature: Modificación de información de productos
 		Examples:
 			| input            | value        | inputTable   |
       | Código (SKU)     | HP-14.1-2026 | Código       |
-			| Descripción      | Laptop HP 15 | Descripción  |
+			| Descripción      | Iphone 10000 | Descripción  |
       | Stock Actual     | 20           | Stock        |
       | Costo            | 200          | Costo        |
       | Precio venta     | 300          | Precio Venta |

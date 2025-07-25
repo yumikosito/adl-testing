@@ -14,14 +14,14 @@ Feature: Registro de productos
   Scenario: Registrar un nuevo producto con datos válidos
     When el usuario completa y envía el formulario con:
       | campo           | valor           |
-      | Código SKU      | IPH16-002       |
+      | Código SKU      | IPH16-005       |
       | Descripción     | iPhone 16       |
       | Stock actual    | 50              |
       | Costo           | 900             |
       | Precio de venta | 1200            |
       | Unidad de medida| Unidad          |
     Then debería ver un mensaje 'Articulo "iPhone 16" creado con éxito!'
-    And el nuevo producto "IPH16-002" debería aparecer en la listado
+    And el nuevo producto "IPH16-005" debería aparecer en la listado
 
  # Scenario: Intentar registrar un producto sin descripción
  #    Given el usuario hace click en el botón "Entidades"

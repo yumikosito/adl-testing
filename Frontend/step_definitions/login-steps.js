@@ -29,14 +29,16 @@ Then('se debe mostrar el dashboard del sistema', async function () {
 
 
 Then('se debe mostrar una alerta de {string}', async function(text){
-  if (text == "Las credenciales proporcionadas son incorrectas"){
+  if (text == "Las credenciales proporcionadas son incorrectas."){
     await this.loginPage.clickLogin()
+    await this.page.waitForTimeout(5000);
   }
   else if( text == "Si existe una cuenta con ese email, recibirás un correo con las instrucciones."){
     await this.loginPage.clickRecover()
+    await this.page.waitForTimeout(5000);
   }
-  await this.page.waitForTimeout(5000);
-  await expect(this.page.locator('.Toastify__toast-container')).toHaveText(text);
+  await this.page.waitForSelector('.Toastify__toast', { timeout: 5000 });
+  await expect(this.page.locator('.Toastify__toast')).toHaveText(text);
 })
 
 
