@@ -1,7 +1,6 @@
 const { setWorldConstructor, World } = require('@cucumber/cucumber');
 const { chromium, firefox, webkit } = require('@playwright/test');
  
-
 class PlaywrightWorld extends World {
     constructor(options) {
         super(options);
@@ -15,6 +14,8 @@ class PlaywrightWorld extends World {
         this.browserName = process.env.BROWSER || 'chromium';
         this.headless = process.env.HEADLESS !== 'false';
         this.baseURL = process.env.BASE_URL || options.parameters.baseUrl;
+        this.email = process.env.ADMIN_EMAIL || options.parameters.email;
+        this.password = process.env.ADMIN_PASSWORD || options.parameters.password;
     }
 
     async init() {
