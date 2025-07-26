@@ -30,7 +30,7 @@ const users = {
     password: "Tester@2025",
   },
   invalidUser: {
-<<<<<<< HEAD
+
     email: "testeradl1@test.com",
     password: "Tester@2026",
   },
@@ -49,25 +49,6 @@ const users = {
   invalidEmail: {
     email: "testtest.com",
     password: "Tester@2025",
-=======
-    email: 'testeradl1@test.com',
-    password: 'Tester@2026',
-  },
-  emptyEmail: {
-    email: '',
-    password: 'Tester@2025',
-  },
-  emptyPassword: {
-    email: 'testeradl@test.com',
-    password: '',
-  },
-  emptyUser: {
-    email: '',
-    password: '',
-  },
-  invalidEmail: {
-    email: 'testtest.com',
-    password: 'Tester@2025',
   },
 };
 
@@ -89,6 +70,7 @@ let createdClientId;
 // Describe general con login provisional
 describe("Client API tests", () => {
   let token;
+
 
   beforeAll(async () => {
     const response = await request(API_URL)
@@ -159,6 +141,135 @@ describe("Client API tests", () => {
         "The email field is required."
       );
     });
+  });
+
+  //POST
+
+  //crea el cliente y captura el id para usarlo en la validacion de creacion
+  //debe pasar status 201 de creado
+  describe("Validate creation client", () => {
+    it("Should create a client with valid data", async () => {
+      const response = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send(validClient);
+
+      expect(response.status).toBe(201);
+      expect(response.body).toHaveProperty("id");
+
+      createdClientId = response.body.id;
+    });
+
+    //valida que el cliente se haya creado correctamente, debe pasar
+    it("Validate response of an existing client with id", async () => {
+      const response = await request(API_URL)
+        .get(`/clients/${createdClientId}`)
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(response.body)).toBe(false);
+      expect(response.body.id).toStrictEqual(createdClientId);
+    });
+
+    //esta prueba debe pasar y demostrar que el backend está validando correctamente los datos
+    it("Should fail to create a client without authorization token", async () => {
+      const response = await request(API_URL)
+        .post("/clients")
+        .send(validClient);
+
+      expect(response.status).toBe(401);
+    });
+
+    //esta prueba debe pasar y demostrar que el backend está validando correctamente los datos
+    it("Should fail to create a client with invalid token", async () => {
+      const response = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", "Bearer fake_token")
+        .send(validClient);
+
+      expect(response.status).toBe(401);
+    });
+
+    // debe fallar - Esta prueba espera que el backend devuelva un error controlado (400 o 422)
+    // cuando faltan campos requeridos. Si el backend responde con 500,
+    // significa que hay un error interno no controlado y la validación debe mejorarse.
+
+    it("Should fail when required fields are missing", async () => {
+      const response = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send({}); // datos vacíos
+
+      expect([400, 422]).toContain(response.status);
+      const expectedMessage = "Los datos proporcionados no son válidos.";
+      const actualMessage = response.body.message;
+      expect(actualMessage).toBe(expectedMessage);
+      expect(response.body.errors).toHaveProperty("name");
+      expect(response.body.errors).toHaveProperty("cuit");
+      expect(response.body.errors).toHaveProperty("email");
+    });
+
+    // debe fallar -Prueba: balance no numérico
+    it("Should fail when balance is not a number", async () => {
+      const invalidClient = {
+        ...validClient,
+        email: `bal_${Date.now()}@example.com`,
+        cuit: `20-${Math.floor(10000000 + Math.random() * 90000000)}-9`,
+        balance: "not-a-number",
+      };
+      const response = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send(invalidClient);
+
+      // Espera que el backend acepte el dato inválido (esto hará que la prueba falle si valida correctamente)
+      expect(response.status).toBe(201);
+    });
+
+    // debe fallar - Prueba: cuit con formato incorrecto -> pasa
+    it("Should fail when cuit has invalid format", async () => {
+      const invalidClient = {
+        ...validClient,
+        email: `cuit_${Date.now()}@example.com`,
+        cuit: "12345678",
+      };
+      const response = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send(invalidClient);
+
+      // Espera que el backend acepte el dato inválido (esto hará que la prueba falle si valida correctamente)
+      expect(response.status).toBe(201);
+    });
+
+    //debe fallar - demuestra que el backend no permite duplicados
+    it("Should fail to create a client with an existing id", async () => {
+      // Primero crea un cliente válido
+      const response1 = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send(validClient);
+
+      expect(response1.status).toBe(201);
+      const existingId = response1.body.id;
+
+      // Intenta crear otro cliente con el mismo id
+      const duplicateClient = {
+        ...validClient,
+        email: `dup_${Date.now()}@example.com`, // Cambia email para evitar error de email duplicado
+        cuit: `20-${Math.floor(10000000 + Math.random() * 90000000)}-9`, // Cambia cuit también
+        id: existingId,
+      };
+
+      const response2 = await request(API_URL)
+        .post("/clients")
+        .set("Authorization", `Bearer ${token}`)
+        .send(duplicateClient);
+
+      // Espera un error de duplicidad o conflicto
+      expect([400, 409, 422]).toContain(response2.status);
+    });
+  });
 
   // Update tests
   describe('Validate updating client', () => {
