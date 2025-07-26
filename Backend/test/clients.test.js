@@ -30,6 +30,7 @@ const users = {
     password: "Tester@2025",
   },
   invalidUser: {
+<<<<<<< HEAD
     email: "testeradl1@test.com",
     password: "Tester@2026",
   },
@@ -48,11 +49,36 @@ const users = {
   invalidEmail: {
     email: "testtest.com",
     password: "Tester@2025",
+=======
+    email: 'testeradl1@test.com',
+    password: 'Tester@2026',
+  },
+  emptyEmail: {
+    email: '',
+    password: 'Tester@2025',
+  },
+  emptyPassword: {
+    email: 'testeradl@test.com',
+    password: '',
+  },
+  emptyUser: {
+    email: '',
+    password: '',
+  },
+  invalidEmail: {
+    email: 'testtest.com',
+    password: 'Tester@2025',
+>>>>>>> origin/Andres
   },
 };
 
+<<<<<<< HEAD
 const uniqueEmail = `user_${Date.now()}@example.com`;
 const uniqueCuit = `20-${Math.floor(10000000 + Math.random() * 90000000)}-9`;
+=======
+const uniqueEmail = `user_${Date.now()}@example.com`
+const uniqueCuit = `20-${Math.floor(10000000 + Math.random() * 90000000)}-9`
+>>>>>>> origin/Andres
 
 const validClient = {
   name: "Andrés López",
@@ -75,6 +101,7 @@ describe("Client API tests", () => {
       .post("/login")
       .send(users.validUser);
 
+<<<<<<< HEAD
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty("access_token");
     token = response.body.access_token;
@@ -82,13 +109,128 @@ describe("Client API tests", () => {
 
   //GET
   describe("Authorization process", () => {
+=======
+    expect(response.status).toBe(200)
+    expect(response.body).toHaveProperty('access_token')
+    token = response.body.access_token
+  })
+
+  describe('Authorization process', () => {
+>>>>>>> origin/Andres
     // it('Validate credentials and give token', async () =>{
     //   const response = await request(API_URL).post('/login').send(users.validUser)
     //   expect(response.status).toBe(200)
     //   expect (response.body).toHaveProperty("access_token")
     // })
 
+<<<<<<< HEAD
     it("Not valid with wrong credentials", async () => {
+=======
+    it('Not valid with wrong credentials', async () => {
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.invalidUser)
+      expect(response.status).toBe(401)
+      expect(response.body.message).toBe(
+        'Las credenciales proporcionadas son incorrectas.'
+      )
+    })
+
+    it('Not valid with missing email input field', async () => {
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.emptyEmail)
+      expect(response.status).toBe(422)
+      expect(response.body.message).toBe(
+        'Los datos proporcionados no son válidos.'
+      )
+      expect(response.body.errors.email[0]).toBe('The email field is required.')
+    })
+
+    it('Not valid with missing password input field', async () => {
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.emptyPassword)
+      expect(response.status).toBe(422)
+      expect(response.body.message).toBe(
+        'Los datos proporcionados no son válidos.'
+      )
+      expect(response.body.errors.password[0]).toBe(
+        'The password field is required.'
+      )
+    })
+
+    it('Not valid with missing email and password input field', async () => {
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.emptyUser)
+      expect(response.status).toBe(422)
+      console.log(response.body.errores)
+
+      expect(response.body.message).toBe(
+        'Los datos proporcionados no son válidos.'
+      )
+      expect(response.body.errors.password[0]).toBe(
+        'The password field is required.'
+      )
+      expect(response.body.errors.email[0]).toBe('The email field is required.')
+    })
+
+    it('Not valid with wrong email', async () => {
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.invalidEmail)
+      expect(response.status).toBe(422)
+      console.log(response.body.errores)
+
+      expect(response.body.message).toBe(
+        'Los datos proporcionados no son válidos.'
+      )
+      expect(response.body.errors.email[0]).toBe(
+        'The email field must be a valid email address.'
+      )
+    })
+  })
+
+  describe('Get clients', () => {
+    it('Validate response of all the list of clients', async () => {
+      const response = await request(API_URL)
+        .get('/clients')
+        .set('Authorization', `Bearer ${token}`)
+
+      expect(response.status).toBe(200)
+      expect(Array.isArray(response.body)).toBe(true)
+
+      for (let i = 0; i < response.body.length; i++) {
+        expect(response.body[i]).toHaveProperty('id')
+        expect(response.body[i]).toHaveProperty('name')
+        expect(response.body[i]).toHaveProperty('cuit')
+        expect(response.body[i]).toHaveProperty('email')
+        expect(response.body[i]).toHaveProperty('phone')
+        expect(response.body[i]).toHaveProperty('address')
+        expect(response.body[i]).toHaveProperty('balance')
+        expect(response.body[i]).toHaveProperty('is_active')
+        expect(response.body[i]).toHaveProperty('created_at')
+        expect(response.body[i]).toHaveProperty('updated_at')
+        expect(response.body[i]).toHaveProperty('deleted_at')
+      }
+    })
+
+    it('Invalid response with request for a inexisting client', async () => {
+      const response = await request(API_URL)
+        .get('/clients/0')
+        .set('Authorization', `Bearer ${token}`)
+
+      expect(response.status).toBe(404)
+      expect(response.text).toContain('<!DOCTYPE html>')
+      expect(Array.isArray(response.text)).toBe(false)
+    })
+  })
+
+  // Describe con creacion de cliente provisional
+  describe('Validate creation client', () => {
+    it('Should create a client with valid data', async () => {
+>>>>>>> origin/Andres
       const response = await request(API_URL)
         .post("/login")
         .send(users.invalidUser);
@@ -124,12 +266,19 @@ describe("Client API tests", () => {
       );
     });
 
+<<<<<<< HEAD
     it("Not valid with missing email and password input field", async () => {
       const response = await request(API_URL)
         .post("/login")
         .send(users.emptyUser);
       expect(response.status).toBe(422);
       console.log(response.body.errores);
+=======
+    it('Validate response of an existing client with id', async () => {
+      const response = await request(API_URL)
+        .get(`/clients/${createdClientId}`)
+        .set('Authorization', `Bearer ${token}`)
+>>>>>>> origin/Andres
 
       expect(response.body.message).toBe(
         "Los datos proporcionados no son válidos."
@@ -142,6 +291,7 @@ describe("Client API tests", () => {
       );
     });
 
+<<<<<<< HEAD
     it("Not valid with wrong email", async () => {
       const response = await request(API_URL)
         .post("/login")
@@ -325,6 +475,11 @@ describe("Client API tests", () => {
 
   describe("Validate updating client", () => {
     it("Should check a valid URL ID", async () => {
+=======
+  // Update tests
+  describe('Validate updating client', () => {
+    it('Should check a valid URL ID', async () => {
+>>>>>>> origin/Andres
       const response = await request(API_URL)
         .put(`/clients/not-valid-url`)
         .set("Authorization", `Bearer ${token}`)
@@ -340,7 +495,13 @@ describe("Client API tests", () => {
         .send({});
 
       if (response.status === 200) {
+<<<<<<< HEAD
         throw new Error("El backend no está validando correctamente");
+=======
+        throw new Error(
+          'El backend no está validando correctamente el envio ausente de datos'
+        )
+>>>>>>> origin/Andres
       }
 
       expect([400, 422]).toContain(response.status);
@@ -357,7 +518,46 @@ describe("Client API tests", () => {
       expect(response.status).toBe(404);
     });
 
+<<<<<<< HEAD
     it("Should update an existing client with valid data", async () => {
+=======
+    it('Should display error messages when trying to update balance client using text', async () => {
+      const updatedClient = {
+        ...validClient,
+        balance: 'letras',
+      }
+
+      const response = await request(API_URL)
+        .put(`/clients/${createdClientId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send(updatedClient)
+
+      expect(response.status).toBe(500)
+      expect(response.text).toContain('Unable to cast value to a decimal')
+    })
+
+    it('Should display error messages when trying to update email client using an incorrect email format', async () => {
+      const updatedClient = {
+        ...validClient,
+        email: 'correo-invalido',
+      }
+
+      const response = await request(API_URL)
+        .put(`/clients/${createdClientId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send(updatedClient)
+
+      if (response.status === 200) {
+        throw new Error(
+          'El backend no está validando correctamente el formato de email'
+        )
+      }
+
+      expect([400, 422]).toContain(response.status)
+    })
+
+    it('Should update an existing client with valid data', async () => {
+>>>>>>> origin/Andres
       const updatedClient = {
         ...validClient,
         address: "Nueva dirección 123",
@@ -373,10 +573,16 @@ describe("Client API tests", () => {
     });
   });
 
+<<<<<<< HEAD
   //DELETE
 
   describe("Validate deleting client", () => {
     it("Should check a valid URL ID", async () => {
+=======
+  // Delete tests
+  describe('Validate deleting client', () => {
+    it('Should check a valid URL ID', async () => {
+>>>>>>> origin/Andres
       const response = await request(API_URL)
         .delete(`/clients/not-valid-url`)
         .set("Authorization", `Bearer ${token}`);
