@@ -46,6 +46,11 @@ class PlaywrightWorld extends World {
 
     // Instanciar pages
     this.productsPage = new ProductsPage(this.page)
+    this.loginPage = new LoginPage(this.page)
+    this.getPage = new GetPage(this.page)
+    this.putPage = new PutPage(this.page)
+    this.deletePage = new DeletePage(this.page)
+
   }
 
   async cleanup() {

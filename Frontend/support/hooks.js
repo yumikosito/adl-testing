@@ -19,12 +19,6 @@ Before(async function () {
   if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir, { recursive: true })
   }
-  // Instanciamos los Page Objects para cada escenario, pasándoles la nueva página
-
-  this.loginPage = new LoginPage(this.page)
-  this.getPage = new GetPage(this.page)
-  this.putPage = new PutPage(this.page)
-  this.deletePage = new DeletePage(this.page)
 })
 
 AfterStep(async function (scenario) {
