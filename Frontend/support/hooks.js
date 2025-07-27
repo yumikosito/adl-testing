@@ -1,10 +1,11 @@
-const { Before, After, AfterStep } = require('@cucumber/cucumber')
-const { setDefaultTimeout } = require('@cucumber/cucumber')
-const LoginPage = require('../pages/LoginPage')
-const GetPage = require('../pages/GetPage')
-const fs = require('fs')
-const PutPage = require('../pages/PutPage')
-const { DeletePage } = require('../pages/DeletePage')
+const { Before, After, AfterStep } = require('@cucumber/cucumber');
+const { setDefaultTimeout } = require('@cucumber/cucumber');
+const LoginPage = require('../pages/LoginPage');
+const GetPage = require('../pages/GetPage');
+const fs = require('fs');
+const PutPage = require('../pages/PutPage');
+const { DeletePage } = require('../pages/DeletePage');
+
 // const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
 // const SecurePage = require('../step_definitions/pom/securePage');
@@ -47,8 +48,29 @@ After(async function (scenario) {
   // this.attach(screenshot, 'image/png');
   //}
 
-  //Grabando video.
-  // const videoPath = await this.page.video()?.path();
+    //Grabando video.
+    // const videoPath = await this.page.video()?.path();
+
+    // Limpieza de productos solo para escenarios @delete
+    if (scenario.pickle.tags.some(tag => tag.name === '@delete')) {
+        const nombres = [
+            'Producto Duplicado',
+            'Iphone 16 Pro Max',
+            // Agrega aquí otros nombres usados en los tests si es necesario
+        ];
+        for (const nombre of nombres) {
+            let count = 0;
+            while (true) {
+                const elements = await this.page.locator(`td:has-text("${nombre}")`).count();
+                if (elements === 0) break;
+                await this.deletePage.clickDeleteButton(nombre);                
+                await this.page.waitForTimeout(1000);                
+                count++;
+                if (count > 10) break;
+            }
+        }
+    }
+
 
   await this.cleanup()
   productCode = null
