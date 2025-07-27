@@ -1,14 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
 
-
-Given('el usuario ingresó con email {string} y contraseña {string}', async function (email,password) {
-  if (email === '<email>') email = this.parameters.credentials.email;
-  if (password === '<password>') password = this.parameters.credentials.password;
-  await this.loginPage.login(email,password)
-})
-
-
 Given('está en la página de dashboard', async function(){
   await expect(this.page).toHaveURL(/.*\/dashboard/);
   await expect(this.page.locator('h1')).toHaveText('Dashboard')
@@ -19,6 +11,22 @@ Given('está en la página de dashboard', async function(){
 When('se navega a la sección de Articulos', async function (){
   await this.getPage.goToProducts()
   await expect(this.page).toHaveURL(/.*\/articulos/)
+})
+
+
+When ('se ingresa al detalle del producto {string}', async function (product){
+  await this.page.locator('.spinner').waitFor({ state: 'detached'});
+  await this.page.waitForTimeout(5000);
+  const isVisible = await this.page.locator('button', { hasText: 'Código' }).isVisible();
+  
+  if (isVisible) {
+    const productClick = await this.page.locator(`tbody tr:has(td:nth-child(1):text-is("${product}"))`);
+    await productClick.click();
+    
+  } else {
+    await expect(this.page.locator('h3')).toHaveText('No hay artículos')
+    console.log("No hay artículos en la cuenta del usuario"); 
+  }
 })
 
 

@@ -1,10 +1,7 @@
 const { Before, After, AfterStep } = require('@cucumber/cucumber');
 const { setDefaultTimeout } = require('@cucumber/cucumber');
-const LoginPage = require('../pages/LoginPage');
-const GetPage = require('../pages/GetPage');
 const fs = require('fs');
-const PutPage = require('../pages/PutPage');
-const { DeletePage } = require('../pages/DeletePage');
+
 
 // const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
@@ -15,6 +12,7 @@ setDefaultTimeout(60 * 1000) // Set timeout to 60 seconds
 Before(async function () {
   // 'this' es una instancia de tu CustomWorld
   await this.init()
+  let productId
 
   const screenshotDir = 'reports/screenshots'
   if (!fs.existsSync(screenshotDir)) {
@@ -56,6 +54,7 @@ After(async function (scenario) {
         const nombres = [
             'Producto Duplicado',
             'Iphone 16 Pro Max',
+            'Iphone 16'
             // Agrega aquí otros nombres usados en los tests si es necesario
         ];
         for (const nombre of nombres) {
