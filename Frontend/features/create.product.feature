@@ -6,7 +6,7 @@ Feature: Registro de productos
 
   Background:
     Given el usuario ingresó con email "<email>" y contraseña "<password>"
-    And esta en la página debe Listado de Articulos
+    And esta en la página Listado de Articulos
     And hizo click en registrar artículo
 
   Scenario: Registrar un nuevo producto con datos válidos
@@ -20,6 +20,18 @@ Feature: Registro de productos
       | Unidad de medida| Unidad          |
     Then debería ver un mensaje que contenga 'Articulo "iPhone 16" creado con éxito!'
     And el nuevo producto "IPH16-005" debería aparecer en la listado
+
+   Scenario: Registrar un nuevo producto con datos válidos para validacion posterior
+    When el usuario completa y envía el formulario con:
+      | campo           | valor           |
+      | Código SKU      | IPH16-006       |
+      | Descripción     | iPhone 16       |
+      | Stock actual    | 50              |
+      | Costo           | 900             |
+      | Precio de venta | 1200            |
+      | Unidad de medida| Unidad          |
+    Then debería ver un mensaje que contenga 'Articulo "iPhone 16" creado con éxito!'
+    And el nuevo producto "IPH16-006" debería aparecer en la listado
 
   Scenario: Intentar registrar un producto sin descripción
     When el usuario completa y envía el formulario con:

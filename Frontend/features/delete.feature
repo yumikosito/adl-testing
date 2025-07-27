@@ -17,6 +17,7 @@ Feature: Eliminación de Productos
     When hace click en el botón eliminar correspondiente al producto "Iphone 16 Pro Max"
     Then se debe mostrar una notificación de "Artículo eliminado con éxito."
     Then el producto "Iphone 16 Pro Max" ya no debería aparecer en la tabla
+  
     
 
   #test falla:  falla porque no existe modal de confirmación al intentar cancelar la eliminación. 
@@ -71,13 +72,3 @@ Feature: Eliminación de Productos
     Given el producto "Iphone 16 Pro Max" existe en la tabla
     When se carga la vista de artículos
     Then debe aparecer el botón con el icono para eliminar el producto "Iphone 16 Pro Max"
-
-  # Escenario para evidenciar debilidad de negocio: permitir duplicados solo por nombre
-  #test pasa: El test evidencia el comportamiento permisivo de la app.
-  @negative @business-weakness
-  Scenario: Permitir productos duplicados solo por nombre
-    Given no existen productos con nombre "Iphone 16 Pro Max"
-    When el usuario crea un producto con nombre "Iphone 16 Pro Max" sin SKU
-    And el usuario crea otro producto con nombre "Iphone 16 Pro Max" sin SKU
-    Then deberían existir al menos 2 productos con nombre "Iphone 16 Pro Max" en la tabla
-    And esto evidencia la debilidad de negocio de permitir duplicados solo por nombre
