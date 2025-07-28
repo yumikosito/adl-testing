@@ -18,7 +18,7 @@ Feature: Consulta de productos
     Then se debe mostrar en pantalla "Artículo: <item>"
     Examples:
     | codigo    | item      |
-    | IPH16-008 | iPhone 16 |
+    | IPH16-011 | iPhone 16 |
 
   Scenario: Consulta erronea de detalle de producto con id <id> inexistente
     When se navega a la sección de Articulos
