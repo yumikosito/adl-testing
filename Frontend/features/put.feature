@@ -7,7 +7,7 @@ Feature: Modificación de información de productos
 	Background:
 	  Given el usuario ingresó con email "<email>" y contraseña "<password>"
 		And esta en la página Listado de Articulos
-		And el producto con código "IPH16-005" existe
+		And el producto con código "IPH16-008" existe
 
 	Scenario: Modificacion exitosa de campo <input> de producto
 		When se ingresa al detalle del producto y se navega a la página de edición
@@ -15,7 +15,7 @@ Feature: Modificación de información de productos
 	  Then aparece un mensaje de edición exitosa y en el sistema cambia el campo de "<inputTable>" a "<value>"
 		Examples:
 			| input            | value             | inputTable   |
-      | Código (SKU)     | IPH16-007         | Código       |
+      | Código (SKU)     | IPH16-010         | Código       |
 			| Descripción      | Iphone 16 Pro Max | Descripción  |
       | Stock Actual     | 20                | Stock        |
       | Costo            | 200               | Costo        |
@@ -30,7 +30,7 @@ Feature: Modificación de información de productos
 	  Then se debe mostrar un mensaje de error "Error al guardar el artículo."
 		Examples:
 			| value      |
-			| IPH16-006  |
+			| IPH16-009  |
 
 #Prueba negativa costo, deja mandar vacio y lo pone como 0 (1 caso)
 	Scenario: Modificacion invalida de <input> con campos vacios

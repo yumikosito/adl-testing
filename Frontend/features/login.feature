@@ -12,8 +12,6 @@ Feature: Servicio de Login
     And el usuario ingresa "<password>" en el campo de contraseña
     Then se debe mostrar el dashboard del sistema
 
-  #Caso de prueba 5 - Como usuario no registrado, quiero validar que no puedo acceder al sistema
-
 	Scenario: Intento de ingreso con credenciales invalidas
 	  When el usuario ingresa "<email>" en el campo de email
     And el usuario ingresa "password123" en el campo de contraseña

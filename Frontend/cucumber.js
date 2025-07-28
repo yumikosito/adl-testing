@@ -4,10 +4,10 @@ module.exports = {
         // Especifica la ruta a tus archivos de features.
         paths: [
             // 'features/**/*.feature'
-            // 'features/login.feature',
-            // 'features/create.product.feature',   
-            // 'features/get.feature',
-            // 'features/put.feature',
+            'features/login.feature',
+            'features/create.product.feature',   
+            'features/get.feature',
+            'features/put.feature',
             'features/delete.feature'
         ],
 

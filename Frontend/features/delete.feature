@@ -17,7 +17,6 @@ Feature: Eliminación de Productos
     When hace click en el botón eliminar correspondiente al producto "Iphone 16 Pro Max"
     Then se debe mostrar una notificación de "Artículo eliminado con éxito."
     Then el producto "Iphone 16 Pro Max" ya no debería aparecer en la tabla
-  
     
 
   #test falla:  falla porque no existe modal de confirmación al intentar cancelar la eliminación. 

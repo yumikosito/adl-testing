@@ -52,9 +52,8 @@ After(async function (scenario) {
     // Limpieza de productos solo para escenarios @delete
     if (scenario.pickle.tags.some(tag => tag.name === '@delete')) {
         const nombres = [
-            'Producto Duplicado',
             'Iphone 16 Pro Max',
-            'Iphone 16'
+            'iPhone 16'
             // Agrega aquí otros nombres usados en los tests si es necesario
         ];
         for (const nombre of nombres) {

@@ -26,6 +26,7 @@ When(
 Then(
   'debería ver un mensaje que contenga {string}',
   async function (expectedMessage) {
+    await this.page.waitForTimeout(5000);
     const messageLocator = await this.productsPage.getMessageLocator()
     await expect(messageLocator).toContainText(expectedMessage)
   }
