@@ -68,15 +68,24 @@ npx cucumber-js
 - Pruebas fallidas:
   - Modificación a campo vacío el input de Costo.
       - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a string el input de Costo. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a campo sin opción ("Selecciona") de Unidad de medida. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a número negativo el input de Stock Actual. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a número negativo el input de Costo. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a número negativo el input de Precio Venta. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Modificación a campo vacío el input de Código (SKU). Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
-  - Mostrar mensaje de confirmación antes de eliminar producto. Resultado esperado: que aparezca una confirmacion "¿Está seguro de eliminar el producto?"
-  - Cancelar eliminación desde el modal de confirmacion. Resultado esperado: que aparezca un boton para confirmar decisión
-  - Impedir eliminación si el producto tiene stock disponible. Resultado esperado: debe mostrar error "No se puede eliminar producto con stock disponible"
+  - Modificación a string el input de Costo.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a campo sin opción ("Selecciona") de Unidad de medida.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a número negativo el input de Stock Actual.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a número negativo el input de Costo.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a número negativo el input de Precio Venta.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a campo vacío el input de Código (SKU).
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Mostrar mensaje de confirmación antes de eliminar producto.
+      - Resultado esperado: que aparezca una confirmacion "¿Está seguro de eliminar el producto?"
+  - Cancelar eliminación desde el modal de confirmacion.
+      - Resultado esperado: que aparezca un boton para confirmar decisión
+  - Impedir eliminación si el producto tiene stock disponible.
+      - Resultado esperado: debe mostrar error "No se puede eliminar producto con stock disponible"
 
 ---
 
