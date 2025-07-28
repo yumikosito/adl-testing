@@ -137,7 +137,6 @@ npx cucumber-js
 
 ```
 Mobile/
-Mobile/
 ├── jest.config.js          
 ├── package.json            
 ├── reports/                 
@@ -171,8 +170,8 @@ npm test
 **Reportes:**
 
 ```bash
-npm run allure:report   # Genera reporte Allure
-npm run allure:open     # Abre reporte Allure
+npm run allure:report   
+npm run allure:open     
 ```
 
 **Hallazgos recientes:**
