@@ -66,7 +66,8 @@ npx cucumber-js
 **Hallazgos recientes:**
 - 10 tests fallidos, 34 tests exitosos (ver `cucumber-report.html` para detalles)
 - Pruebas fallidas:
-  - Modificación a campo vacío el input de Costo. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
+  - Modificación a campo vacío el input de Costo.
+      - Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
   - Modificación a string el input de Costo. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
   - Modificación a campo sin opción ("Selecciona") de Unidad de medida. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
   - Modificación a número negativo el input de Stock Actual. Resultado esperado: que no lo permita y salga mensaje "Error al guardar el artículo"
