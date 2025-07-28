@@ -1,6 +1,4 @@
-# adl-testing / Proyecto de Evaluación - Test Automation Engineer
-
-## Español
+# Proyecto de Evaluación - Test Automation Engineer
 
 ### Introducción
 
@@ -22,6 +20,16 @@ adl-testing/
 ## Backend
 
 **Tecnologías:** Node.js, Jest, Supertest, jest-html-reporters
+**Estructura:**
+
+```
+Backend/
+├── jest.config.js
+├── package.json
+├── jest_html_reporters.html
+├── test/
+│   ├── clients.test.js
+```
 
 **Instalación:**
 
@@ -33,7 +41,7 @@ npm install
 **Ejecución de pruebas:**
 
 ```bash
-npm test
+npm run test
 ```
 
 **Hallazgos recientes:**
@@ -49,7 +57,37 @@ npm test
 ## Frontend
 
 **Tecnologías:** Node.js, Playwright, Cucumber.js, cucumber-html-reporter
+**Estructura:**
 
+```
+Frontend/
+├── cucumber.js
+├── playwright.config.js
+├── package.json
+├── reports
+│   ├── cucumber-report.html
+├── features/
+│   ├── create.product.feature
+│   ├── delete.feature
+│   ├── get.feature
+│   ├── login.feature
+│   ├── put.feature
+├── pages/
+│   ├── CreatePage.js
+│   ├── DeletePage.js
+│   ├── GetPage.js
+│   ├── LoginPage.js
+│   ├── PutPage.js   
+├── step_definitions/
+│   ├── create-steps.js
+│   ├── delete-steps.js
+│   ├── get-steps.js
+│   ├── login-steps.js
+│   ├── put-steps.js   
+├── support/
+│   ├── hooks.js
+│   ├── world.js   
+```
 **Instalación:**
 
 ```bash
@@ -97,13 +135,22 @@ npx cucumber-js
 
 ```
 Mobile/
-├── jest.config.js
-├── package.json
-├── reports/
+Mobile/
+├── jest.config.js          
+├── package.json            
+├── reports/                 
 ├── test/
-│   ├── pages/ (Page Objects)
-│   ├── specs/ (tests)
-│   └── utils/ (capabilities, selectores)
+│   ├── pages/
+│   │   └── ToDoPage.js      
+│   ├── specs/              
+│   │   ├── addTask.test.js
+│   │   ├── deleteTask.test.js
+│   │   ├── editTask.test.js
+│   │   ├── filterTask.test.js
+│   │   ├── searchTask.test.js
+│   └── utils/
+│       ├── capabilities.js  
+│       └── selectors.js     
 ```
 
 **Instalación:**
@@ -133,16 +180,5 @@ npm run allure:open     # Abre reporte Allure
   node --experimental-vm-modules ./node_modules/jest/bin/jest.js test/specs --runInBand
   ```
 - Si los tests aparecen duplicados o como "Unknown" en Allure, revisa que no haya archivos duplicados y que la configuración de Jest sea correcta.
-
-**Buenas prácticas y problemas comunes:**
-
-- Centraliza selectores en `selectors.js`.
-- Usa Page Objects para mantener la lógica de interacción.
-- Prepara datos de prueba en cada test.
-- No subas `node_modules/`, `reports/`, `allure-results/` ni `.env`.
-- Si ves errores de `dynamic import callback`, ejecuta:
-  ```
-  node --experimental-vm-modules ./node_modules/jest/bin/jest.js test/specs --runInBand
-  ```
 
 All Rights Reserved "BigTeam2025 - TAE"
