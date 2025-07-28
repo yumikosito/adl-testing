@@ -20,6 +20,7 @@ adl-testing/
 ## Backend
 
 **Tecnologías:** Node.js, Jest, Supertest, jest-html-reporters
+
 **Estructura:**
 
 ```
@@ -57,6 +58,7 @@ npm run test
 ## Frontend
 
 **Tecnologías:** Node.js, Playwright, Cucumber.js, cucumber-html-reporter
+
 **Estructura:**
 
 ```
