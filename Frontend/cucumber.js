@@ -3,12 +3,13 @@ module.exports = {
   default: {
     // Especifica la ruta a tus archivos de features.
     paths: [
-      'features/**/*.feature',
+      // 'features/**/*.feature',
       'features/login.feature',
       'features/create.product.feature',
       'features/get.feature',
       'features/put.feature',
-      'features/delete.feature',
+      // 'features/delete.feature',
+      'features/delete-simple.feature',
     ],
 
     // Le dice a Cucumber dónde encontrar tus definiciones de pasos y archivos de soporte.

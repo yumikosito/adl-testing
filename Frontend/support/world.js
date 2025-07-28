@@ -1,11 +1,12 @@
-const { setWorldConstructor, World } = require('@cucumber/cucumber');
-const { chromium, firefox, webkit } = require('@playwright/test');
-const PutPage = require('../pages/PutPage');
-const { DeletePage } = require('../pages/DeletePage');
-const LoginPage = require('../pages/LoginPage');
-const GetPage = require('../pages/GetPage');
-const { ProductsPage } = require('../pages/CreatePage');
- 
+const { setWorldConstructor, World } = require('@cucumber/cucumber')
+const { chromium, firefox, webkit } = require('@playwright/test')
+const PutPage = require('../pages/PutPage')
+const { DeletePage } = require('../pages/DeletePage')
+const LoginPage = require('../pages/LoginPage')
+const GetPage = require('../pages/GetPage')
+const { ProductsPage } = require('../pages/CreatePage')
+const DeleteSimplePage = require('../pages/DeleteSimplePage')
+
 class PlaywrightWorld extends World {
   constructor(options) {
     super(options)
@@ -17,13 +18,13 @@ class PlaywrightWorld extends World {
     // Page objects
     this.productosPage = null
 
-        // Configuración desde variables de entorno
-        this.browserName = process.env.BROWSER || 'chromium';
-        this.headless = process.env.HEADLESS !== 'false';
-        this.baseURL = process.env.BASE_URL || options.parameters.baseUrl;
-        this.email = process.env.ADMIN_EMAIL || options.parameters.email;
-        this.password = process.env.ADMIN_PASSWORD || options.parameters.password;
-    }
+    // Configuración desde variables de entorno
+    this.browserName = process.env.BROWSER || 'chromium'
+    this.headless = process.env.HEADLESS !== 'false'
+    this.baseURL = process.env.BASE_URL || options.parameters.baseUrl
+    this.email = process.env.ADMIN_EMAIL || options.parameters.email
+    this.password = process.env.ADMIN_PASSWORD || options.parameters.password
+  }
 
   async init() {
     // Seleccionar browser dinámicamente
@@ -57,6 +58,8 @@ class PlaywrightWorld extends World {
     this.putPage = new PutPage(this.page)
     this.deletePage = new DeletePage(this.page)
 
+    // prueba
+    this.deletePageSimple = new DeleteSimplePage(this.page)
   }
 
   async cleanup() {
