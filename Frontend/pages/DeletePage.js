@@ -45,56 +45,58 @@ class DeletePage {
   }
 
   async ensureProductExists(nombre) {
-    // Limpia productos previos con el mismo nombre (puede haber duplicados)
-    const filas = this.page.locator('table tbody tr');
-    const rowCount = await filas.count();
-    for (let i = 0; i < rowCount; i++) {
-      const row = filas.nth(i);
-      const nameCell = await row.locator('td').nth(1).textContent();
-      if (nameCell && nameCell.trim() === nombre) {
-        // Elimina el producto si hay botón eliminar visible
-        const deleteBtn = row.locator('button[class*="red"], button[class*="text-red"]');
-        if (await deleteBtn.count() > 0 && await deleteBtn.first().isVisible()) {
-          await deleteBtn.first().click();
-          // Si hay modal de confirmación, confirma
-          const confirmBtn = this.page.getByRole("button", { name: /Confirmar|Sí|Aceptar/i });
-          if (await confirmBtn.count() > 0 && await confirmBtn.first().isVisible()) {
-            await confirmBtn.first().click();
-          }
-          // Espera a que desaparezca la fila
-          await this.page.waitForTimeout(500);
-        }
-      }
+  // Busca si ya existe el producto por nombre en la tabla
+  const filas = this.page.locator('table tbody tr');
+  const rowCount = await filas.count();
+  for (let i = 0; i < rowCount; i++) {
+    const row = filas.nth(i);
+    const nameCell = await row.locator('td').nth(1).textContent();
+    if (nameCell && nameCell.trim() === nombre) {
+      const skuCell = await row.locator('td').nth(0).textContent();
+      const sku = skuCell ? skuCell.trim() : '';
+      this.sku = sku;
+      return sku;
     }
+  }
+  // Si no existe, crea el producto y guarda el SKU generado
+  const sku = await this.createProduct(nombre);
+  this.sku = sku;
+  return sku;
+}
 
-    // Genera un SKU único para este test
+  /**
+   * Crea un nuevo producto con nombre dado y valores por defecto.
+   * Retorna el SKU generado.
+   */
+  async createProduct(nombre) {
     const sku = "SKU-" + Date.now().toString().slice(-8);
-    const defaults = {
+    const data = {
+      name: nombre,
       sku,
       stock: "10",
       cost: 100,
       price: 200,
     };
-    const data = { ...defaults, name: nombre };
 
     await this.page.getByRole("button", { name: /Crear Articulo|Crear Artículo/i }).click();
     await this.page.waitForTimeout(500);
 
-    // Completa el formulario
     await this.page.fill("#name", data.name);
     await this.page.fill("#sku", data.sku);
     await this.page.fill("#stock_quantity", data.stock);
     await this.page.fill("#cost_price", String(data.cost));
     await this.page.fill("#sale_price", String(data.price));
-    // Selecciona la unidad si es necesario
+
     const unitSelect = this.page.locator("#unit");
     const secondOptionValue = await unitSelect.locator("option:nth-child(2)").getAttribute("value");
     await unitSelect.selectOption(secondOptionValue);
+
     await this.page.getByRole("button", { name: /Guardar|Crear/i }).click();
     await this.page.waitForTimeout(1000);
 
-    // Espera a que el producto aparezca en la tabla por SKU
     await expect(this.page.locator(`td:has-text("${sku}")`)).toBeVisible({ timeout: 10000 });
+
+    return sku;
   }
 
   /**

@@ -1,5 +1,10 @@
 const { setWorldConstructor, World } = require('@cucumber/cucumber');
 const { chromium, firefox, webkit } = require('@playwright/test');
+const PutPage = require('../pages/PutPage');
+const { DeletePage } = require('../pages/DeletePage');
+const LoginPage = require('../pages/LoginPage');
+const GetPage = require('../pages/GetPage');
+const { ProductsPage } = require('../pages/CreatePage');
  
 class PlaywrightWorld extends World {
   constructor(options) {
@@ -47,6 +52,11 @@ class PlaywrightWorld extends World {
 
     // Instanciar pages
     this.productsPage = new ProductsPage(this.page)
+    this.loginPage = new LoginPage(this.page)
+    this.getPage = new GetPage(this.page)
+    this.putPage = new PutPage(this.page)
+    this.deletePage = new DeletePage(this.page)
+
   }
 
   async cleanup() {

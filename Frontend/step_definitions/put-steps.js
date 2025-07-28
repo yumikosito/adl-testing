@@ -5,7 +5,7 @@ let tableTR;
 let productCode;
 
 
-Given('esta en la página debe Listado de Articulos', async function (){
+Given('esta en la página Listado de Articulos', async function (){
   await this.getPage.goToProducts()
   await expect(this.page).toHaveURL(/.*\/articulos/)
 })

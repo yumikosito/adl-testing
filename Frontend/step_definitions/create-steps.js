@@ -2,6 +2,13 @@ const { Given, When, Then } = require('@cucumber/cucumber')
 const { expect } = require('@playwright/test')
 
 // Background
+
+Given('el usuario ingresó con email {string} y contraseña {string}', async function (email,password) {
+  if (email === '<email>') email = this.parameters.credentials.email;
+  if (password === '<password>') password = this.parameters.credentials.password;
+  await this.loginPage.login(email,password)
+})
+
 Given('hizo click en registrar artículo', async function () {
   await this.productsPage.createProduct()
   await expect(this.page).toHaveURL(/.*\/articulos\/nuevo/)
@@ -19,6 +26,7 @@ When(
 Then(
   'debería ver un mensaje que contenga {string}',
   async function (expectedMessage) {
+    await this.page.waitForTimeout(5000);
     const messageLocator = await this.productsPage.getMessageLocator()
     await expect(messageLocator).toContainText(expectedMessage)
   }

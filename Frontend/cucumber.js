@@ -5,10 +5,10 @@ module.exports = {
         paths: [
             // 'features/**/*.feature'
             'features/login.feature',
+            'features/create.product.feature',   
             'features/get.feature',
-            'features/create.product.feature',
             'features/put.feature',
-            // 'features/delete.feature'
+            'features/delete.feature'
         ],
 
         // Le dice a Cucumber dónde encontrar tus definiciones de pasos y archivos de soporte.

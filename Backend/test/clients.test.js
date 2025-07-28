@@ -67,10 +67,8 @@ const validClient = {
 
 let createdClientId;
 
-// Describe general con login provisional
 describe("Client API tests", () => {
   let token;
-
 
   beforeAll(async () => {
     const response = await request(API_URL)
@@ -82,7 +80,7 @@ describe("Client API tests", () => {
     token = response.body.access_token;
   });
 
-  //GET
+  //AUTH
   describe("Authorization process", () => {
     // it('Validate credentials and give token', async () =>{
     //   const response = await request(API_URL).post('/login').send(users.validUser)
@@ -90,6 +88,7 @@ describe("Client API tests", () => {
     //   expect (response.body).toHaveProperty("access_token")
     // })
 
+    //debe pasar
     it("Not valid with wrong credentials", async () => {
       const response = await request(API_URL)
         .post("/login")
@@ -100,6 +99,7 @@ describe("Client API tests", () => {
       );
     });
 
+    //debe pasar
     it("Not valid with missing email input field", async () => {
       const response = await request(API_URL)
         .post("/login")
@@ -113,6 +113,7 @@ describe("Client API tests", () => {
       );
     });
 
+    //debe pasar
     it("Not valid with missing password input field", async () => {
       const response = await request(API_URL)
         .post("/login")
@@ -126,11 +127,13 @@ describe("Client API tests", () => {
       );
     });
 
-    it('Validate response of an existing client with id', async () => {
+    //debe pasar
+    it('Not valid with missing email and password input field', async () => {
       const response = await request(API_URL)
-        .get(`/clients/${createdClientId}`)
-        .set('Authorization', `Bearer ${token}`)
+        .post('/login')
+        .send(users.emptyUser)
 
+      expect(response.status).toBe(422)
       expect(response.body.message).toBe(
         "Los datos proporcionados no son válidos."
       );
@@ -141,7 +144,55 @@ describe("Client API tests", () => {
         "The email field is required."
       );
     });
+    
+    //debe pasar
+    it('Not valid with wrong email type', async () =>{
+      const response = await request(API_URL)
+        .post('/login')
+        .send(users.invalidEmail)
+      expect(response.status).toBe(422)
+      expect(response.body.message).toBe('Los datos proporcionados no son válidos.')
+      expect(response.body.errors.email[0]).toBe('The email field must be a valid email address.')
+    }) 
   });
+
+//GET
+
+  describe('Get clients', () =>{
+    //debe pasar, verifica que todos los objetos tengan las propiedades correspondientes
+    it('Validate response of all the list of clients', async () =>{
+      const response = await request(API_URL)
+        .get('/clients')
+        .set('Authorization', `Bearer ${token}`)
+      expect(response.status).toBe(200)
+      expect(Array.isArray(response.body)).toBe(true)
+
+      for(let i=0; i<response.body.length; i++){
+        expect(response.body[i]).toHaveProperty("id")
+        expect(response.body[i]).toHaveProperty("name")
+        expect(response.body[i]).toHaveProperty("cuit")
+        expect(response.body[i]).toHaveProperty("email")
+        expect(response.body[i]).toHaveProperty("phone")
+        expect(response.body[i]).toHaveProperty("address")
+        expect(response.body[i]).toHaveProperty("balance")
+        expect(response.body[i]).toHaveProperty("is_active")
+        expect(response.body[i]).toHaveProperty("created_at")
+        expect(response.body[i]).toHaveProperty("updated_at")
+        expect(response.body[i]).toHaveProperty("deleted_at")
+      }
+    })
+
+    //debe pasar, id 0 no existe y sale error
+    it('Invalid response with request for a inexisting client', async () =>{
+      const response = await request(API_URL)
+        .get('/clients/0')
+        .set('Authorization', `Bearer ${token}`)
+      expect(response.status).toBe(404)
+      expect(response.text).toContain('<!DOCTYPE html>')
+      expect(Array.isArray(response.text)).toBe(false)
+    })
+
+  })
 
   //POST
 
@@ -271,7 +322,7 @@ describe("Client API tests", () => {
     });
   });
 
-  // Update tests
+  // PUT
   describe('Validate updating client', () => {
     it('Should check a valid URL ID', async () => {
       const response = await request(API_URL)
@@ -359,7 +410,7 @@ describe("Client API tests", () => {
     });
   });
 
-  // Delete tests
+  // DELETE
   describe('Validate deleting client', () => {
     it('Should check a valid URL ID', async () => {
       const response = await request(API_URL)

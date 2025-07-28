@@ -33,25 +33,21 @@ Given('la lista de articulos está completamente cargada', async function () {
 
 Given('el producto {string} existe en la tabla', async function (producto) {
   // Siempre crea el producto con SKU válido y lo asigna a this.sku
-  await this.deletePage.ensureProductExists(producto);
-  const row = await this.page.getByText(producto, { exact: false }).first().locator('..');
-  const skuCell = await row.locator('td').nth(0).textContent();
-  const sku = skuCell ? skuCell.trim() : '';
-  if (!sku) {
-    throw new Error(`No se pudo crear el producto '${producto}' con SKU válido. Verifica la lógica de creación.`);
-  }
+  const sku = await this.deletePage.ensureProductExists(producto);
   this.producto = producto;
   this.sku = sku;
 });
 
 
-// Strict: Eliminar por nombre y SKU (precisión máxima si hay SKU, si no, por nombre)
+
+// Para el escenario exitoso y otros que solo requieren nombre, eliminar solo por nombre
 When('hace click en el botón eliminar correspondiente al producto {string}', async function (producto) {
-  if (this.sku && this.sku !== "") {
-    await this.deletePage.clickDeleteButtonByNameAndSku(this.producto, this.sku);
-  } else {
-    await this.deletePage.clickDeleteButton(this.producto);
-  }
+  await this.deletePage.clickDeleteButton(producto);
+});
+
+// Si algún escenario requiere eliminar por nombre y SKU explícitamente, usar este step:
+When('hace click en el botón eliminar correspondiente al producto {string} y SKU {string}', async function (producto, sku) {
+  await this.deletePage.clickDeleteButtonByNameAndSku(producto, sku);
 });
 
 

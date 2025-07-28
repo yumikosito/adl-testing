@@ -1,0 +1,5234 @@
+[
+  {
+    "description": "  Como usuario \n  Quiero iniciar sesion\n  Para ingresar al sistema",
+    "elements": [
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-validas",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Intento de ingreso con credenciales validas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 277001499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5452472798
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "el usuario ingresa \"<email>\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87397799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "el usuario ingresa \"<password>\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80478498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "se debe mostrar el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\login-steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5117381199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 758310400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-credenciales-invalidas",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Intento de ingreso con credenciales invalidas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 402957299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5731864900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "el usuario ingresa \"<email>\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83251598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "el usuario ingresa \"password123\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 84112600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "se debe mostrar una alerta de \"Las credenciales proporcionadas son incorrectas.\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5147144899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 88266799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-ambos-campos-vacios",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Intento de ingreso con ambos campos vacios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 237576300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5374063998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "el usuario ingresa \"\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85137500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "el usuario ingresa \"\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66353500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "se debe mostrar un mensaje de que se requiere llenado de \"email\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5194077699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 121738099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacio-de-email",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Intento de ingreso con campo vacio de email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 297298900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5546584199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "el usuario ingresa \"\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66777099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "el usuario ingresa \"Tester\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87837600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "se debe mostrar un mensaje de que se requiere llenado de \"email\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5150540700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 102174800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-ingreso-con-campo-vacio-de-contraseña",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Intento de ingreso con campo vacio de contraseña",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 262779099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5434302799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 31,
+            "name": "el usuario ingresa \"correo@correo.com\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100275300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "el usuario ingresa \"\" en el campo de contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 128309999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "se debe mostrar un mensaje de que se requiere llenado de \"password\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5216177198
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 82664199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "servicio-de-login;intento-de-recuperar-contraseña",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Intento de recuperar contraseña",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 246824500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario esta previamente registrado y en la pagina de login",
+            "match": {
+              "location": "step_definitions\\login-steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6014808798
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "el usuario ingresa a la página de Recuperar contraseña",
+            "match": {
+              "location": "step_definitions\\login-steps.js:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131246699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "el usuario ingresa \"<email>\" en el campo de email",
+            "match": {
+              "location": "step_definitions\\login-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 88642600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "se debe mostrar una alerta de \"Si existe una cuenta con ese email, recibirás un correo con las instrucciones.\"",
+            "match": {
+              "location": "step_definitions\\login-steps.js:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5152330899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 90245100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "servicio-de-login",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Servicio de Login",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "features\\login.feature"
+  },
+  {
+    "description": "    Como usuario registrado\n    Quiero poder acceder al sistema\n    Para registrar un nuevo producto con sus datos completos",
+    "elements": [
+      {
+        "description": "",
+        "id": "registro-de-productos;registrar-un-nuevo-producto-con-datos-válidos",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Registrar un nuevo producto con datos válidos",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 281362000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6636331999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2536001799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133205699
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "campo",
+                      "valor"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Código SKU",
+                      "IPH16-008"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Descripción",
+                      "iPhone 16"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Stock actual",
+                      "50"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Costo",
+                      "900"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Precio de venta",
+                      "1200"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Unidad de medida",
+                      "Unidad"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "el usuario completa y envía el formulario con:",
+            "match": {
+              "location": "step_definitions\\create-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 170563498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "debería ver un mensaje que contenga 'Articulo \"iPhone 16\" creado con éxito!'",
+            "match": {
+              "location": "step_definitions\\create-steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5107912598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "el nuevo producto \"IPH16-008\" debería aparecer en la listado",
+            "match": {
+              "location": "step_definitions\\create-steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 114206698
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 77199099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registro-de-productos;registrar-un-nuevo-producto-con-datos-válidos-para-validacion-posterior",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Registrar un nuevo producto con datos válidos para validacion posterior",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 240998300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6565811499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2038229199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132358699
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "campo",
+                      "valor"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Código SKU",
+                      "IPH16-009"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Descripción",
+                      "iPhone 16"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Stock actual",
+                      "50"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Costo",
+                      "900"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Precio de venta",
+                      "1200"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Unidad de medida",
+                      "Unidad"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 25,
+            "name": "el usuario completa y envía el formulario con:",
+            "match": {
+              "location": "step_definitions\\create-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 238896099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "debería ver un mensaje que contenga 'Articulo \"iPhone 16\" creado con éxito!'",
+            "match": {
+              "location": "step_definitions\\create-steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5115170999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "el nuevo producto \"IPH16-009\" debería aparecer en la listado",
+            "match": {
+              "location": "step_definitions\\create-steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 93028398
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 87619399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registro-de-productos;intentar-registrar-un-producto-sin-descripción",
+        "keyword": "Scenario",
+        "line": 36,
+        "name": "Intentar registrar un producto sin descripción",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 382076600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6843815998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2102975099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 151046099
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "campo",
+                      "valor"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Código SKU",
+                      "TEST-999"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Stock actual",
+                      "10"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Costo",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Precio de venta",
+                      "200"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Unidad de medida",
+                      "Unidad"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 37,
+            "name": "el usuario completa y envía el formulario con:",
+            "match": {
+              "location": "step_definitions\\create-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 207984499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 44,
+            "name": "no debería ver un mensaje de éxito",
+            "match": {
+              "location": "step_definitions\\create-steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 81242799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "debería permanecer en la página de creación",
+            "match": {
+              "location": "step_definitions\\create-steps.js:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86392000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 164236399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registro-de-productos;intentar-registrar-un-producto-con-solo-descripción",
+        "keyword": "Scenario",
+        "line": 48,
+        "name": "Intentar registrar un producto con solo descripción",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 368689500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6596888399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2520748298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132030800
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "campo",
+                      "valor"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Descripción",
+                      "iPhone 16"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 49,
+            "name": "el usuario completa y envía el formulario con:",
+            "match": {
+              "location": "step_definitions\\create-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 121574800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 52,
+            "name": "no debería ver un mensaje de éxito",
+            "match": {
+              "location": "step_definitions\\create-steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86168799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "debería permanecer en la página de creación",
+            "match": {
+              "location": "step_definitions\\create-steps.js:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80007000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 82466599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          },
+          {
+            "name": "@bug",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registro-de-productos;intentar-registrar-un-producto-sin-completar-ningún-campo",
+        "keyword": "Scenario",
+        "line": 55,
+        "name": "Intentar registrar un producto sin completar ningún campo",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 270632299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6602216199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2630989298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 191205598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "el usuario envía el formulario vacio",
+            "match": {
+              "location": "step_definitions\\create-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 128965100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "no debería ver un mensaje de éxito",
+            "match": {
+              "location": "step_definitions\\create-steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 79360799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "debería permanecer en la página de creación",
+            "match": {
+              "location": "step_definitions\\create-steps.js:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85662599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 80717599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registro-de-productos;intentar-registrar-un-producto-con-un-código-sku-ya-existente",
+        "keyword": "Scenario",
+        "line": 60,
+        "name": "Intentar registrar un producto con un Código SKU ya existente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 292214200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6625529699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2520668200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "hizo click en registrar artículo",
+            "match": {
+              "location": "step_definitions\\create-steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131402599
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "campo",
+                      "valor"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Código SKU",
+                      "IPH16-005"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Descripción",
+                      "iPhone 16"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Stock actual",
+                      "20"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Costo",
+                      "850"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Precio de venta",
+                      "1100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Unidad de medida",
+                      "Unidad"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 61,
+            "name": "el usuario completa y envía el formulario con:",
+            "match": {
+              "location": "step_definitions\\create-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 216491900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 69,
+            "name": "no debería ver un mensaje de éxito",
+            "match": {
+              "location": "step_definitions\\create-steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73928698
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 70,
+            "name": "debería permanecer en la página de creación",
+            "match": {
+              "location": "step_definitions\\create-steps.js:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86986899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 95869200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@create-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "registro-de-productos",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Registro de productos",
+    "tags": [
+      {
+        "name": "@create-products",
+        "line": 1
+      }
+    ],
+    "uri": "features\\create.product.feature"
+  },
+  {
+    "description": "  Como usuario\n  Quiero poder acceder al sistema\n  Para consultar productos",
+    "elements": [
+      {
+        "description": "",
+        "id": "consulta-de-productos;consulta-exitosa-de-productos-generales",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Consulta exitosa de productos generales",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 307359199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6758483999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en la página de dashboard",
+            "match": {
+              "location": "step_definitions\\get-steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1973011600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 705087498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "se deben mostrar todos los productos en tu cuenta",
+            "match": {
+              "location": "step_definitions\\get-steps.js:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5102771899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1003017699
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@get-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consulta-de-productos;consulta-exitosa-de-detalle-de-producto-iph16-005",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Consulta exitosa de detalle de producto IPH16-005",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 303237000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6562879999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en la página de dashboard",
+            "match": {
+              "location": "step_definitions\\get-steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1962045799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 709663899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "se ingresa al detalle del producto \"IPH16-005\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5115215800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "se debe mostrar en pantalla \"Artículo: iPhone 16\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:62"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 870927400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 622277200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@get-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consulta-de-productos;consulta-erronea-de-detalle-de-producto-con-id-0-inexistente",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Consulta erronea de detalle de producto con id 0 inexistente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 425497399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6485702999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en la página de dashboard",
+            "match": {
+              "location": "step_definitions\\get-steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1996805498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 819781299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "se selecciona el producto con ID \"0\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2939236600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "se debe mostrar un mensaje de error \"Error al cargar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5883672299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 759603299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@get-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consulta-de-productos;consulta-erronea-de-detalle-de-producto-con-id-1003-inexistente",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Consulta erronea de detalle de producto con id 1003 inexistente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 271138999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6578635999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en la página de dashboard",
+            "match": {
+              "location": "step_definitions\\get-steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1960897699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "se navega a la sección de Articulos",
+            "match": {
+              "location": "step_definitions\\get-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 732850499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "se selecciona el producto con ID \"1003\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2875037898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "se debe mostrar un mensaje de error \"Error al cargar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5885747799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 891380399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@get-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "consulta-de-productos",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Consulta de productos",
+    "tags": [
+      {
+        "name": "@get-products",
+        "line": 1
+      }
+    ],
+    "uri": "features\\get.feature"
+  },
+  {
+    "description": "\tComo usuario\n\tQuiero poder acceder al sistema\n\tPara actualizar los datos de mis productos",
+    "elements": [
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-código-(sku)-de-producto",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Modificacion exitosa de campo Código (SKU) de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 301612099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6827689299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2522077099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82599299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6816311899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Código (SKU)\" a \"IPH16-010\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 214444399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Código\" a \"IPH16-010\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1158249098
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 84061799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-descripción-de-producto",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Modificacion exitosa de campo Descripción de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 288893500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6762566000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2052596098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 104432899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6834955699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Descripción\" a \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 275216600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Descripción\" a \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1151407099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 139544200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-stock-actual-de-producto",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Modificacion exitosa de campo Stock Actual de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 317073800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6723618599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2502284499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82699899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6818665898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Stock Actual\" a \"20\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 127730998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Stock\" a \"20\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1158771298
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 89565999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-costo-de-producto",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Modificacion exitosa de campo Costo de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 297450000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6564667300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2573693098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 112624599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6847335799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Costo\" a \"200\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 139519499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Costo\" a \"200\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1153010698
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 126900400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-precio-venta-de-producto",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Modificacion exitosa de campo Precio venta de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 331763400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6696137498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2515683599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86481900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6850190600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Precio venta\" a \"300\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 145883599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Precio Venta\" a \"300\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1124102599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 97886699
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-unidad-de-medida-de-producto",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Modificacion exitosa de campo Unidad de medida de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 280755100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6608603900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2521423300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 101917898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6818059099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Unidad de medida\" a \"Caja\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109830099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Unidad\" a \"Caja\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1407555099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 89807299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-unidad-de-medida-de-producto",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Modificacion exitosa de campo Unidad de medida de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 293968600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6520403999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2518232799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85998100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6819424898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Unidad de medida\" a \"Kg\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111090299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Unidad\" a \"Kg\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1045003499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 105144199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-exitosa-de-campo-unidad-de-medida-de-producto",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Modificacion exitosa de campo Unidad de medida de producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 270613600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6710071099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2520805998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86222899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6829193300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "se modifica el campo de \"Unidad de medida\" a \"Unidad\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111806299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "aparece un mensaje de edición exitosa y en el sistema cambia el campo de \"Unidad\" a \"Unidad\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1023734899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 94012999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-por-codigo-(sku)-iph16-009-en-uso",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Modificacion invalida por codigo (SKU) IPH16-009 en uso",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 313145000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6782588300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2500029799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85447700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6829540700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "se modifica el campo de \"Código (SKU)\" a \"IPH16-009\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 203122900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5114960399
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 608191599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-descripción-con-campos-vacios",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "Modificacion invalida de Descripción con campos vacios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 270025399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6682198600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2518646498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87097599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6901994299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "se modifica el campo de \"Descripción\" a \"\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109583700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5116650899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 661129399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-stock-actual-con-campos-vacios",
+        "keyword": "Scenario",
+        "line": 43,
+        "name": "Modificacion invalida de Stock Actual con campos vacios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 266611200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6767822699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2500041199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97561500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6843566398
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "se modifica el campo de \"Stock Actual\" a \"\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 108094299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5106548798
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 526175199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-costo-con-campos-vacios",
+        "keyword": "Scenario",
+        "line": 44,
+        "name": "Modificacion invalida de Costo con campos vacios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 263804500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6736079200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2513562199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85023399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6817877500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "se modifica el campo de \"Costo\" a \"\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 115277599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10121872900,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 583664600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-precio-venta-con-campos-vacios",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "Modificacion invalida de Precio venta con campos vacios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 277347699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6541340798
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2517214200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109617100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6861506799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "se modifica el campo de \"Precio venta\" a \"\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 110995198
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5102829200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 506665900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-stock-actual-con-texto-en-input-tipo-numerico",
+        "keyword": "Scenario",
+        "line": 55,
+        "name": "Modificacion invalida de Stock Actual con texto en input tipo numerico",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 276465900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6642162699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2505870600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85231099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6940373700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "se modifica el campo de \"Stock Actual\" a \"dos\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 155980800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "el campo de \"Stock Actual\" queda vacío al no ser número válido",
+            "match": {
+              "location": "step_definitions\\put-steps.js:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86094500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5101759500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 558212899
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-costo-con-texto-en-input-tipo-numerico",
+        "keyword": "Scenario",
+        "line": 56,
+        "name": "Modificacion invalida de Costo con texto en input tipo numerico",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 286998199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6612121298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2518432098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100500700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6812053600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "se modifica el campo de \"Costo\" a \"dos\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 131776799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "el campo de \"Costo\" queda vacío al no ser número válido",
+            "match": {
+              "location": "step_definitions\\put-steps.js:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69417098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10114619399,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at process.processImmediate (node:internal/timers:454:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 550221699
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-precio-venta-con-texto-en-input-tipo-numerico",
+        "keyword": "Scenario",
+        "line": 57,
+        "name": "Modificacion invalida de Precio venta con texto en input tipo numerico",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 271107100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6768876898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2505711298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80323998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6835412698
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "se modifica el campo de \"Precio venta\" a \"dos\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 130203599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "el campo de \"Precio venta\" queda vacío al no ser número válido",
+            "match": {
+              "location": "step_definitions\\put-steps.js:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69143600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5095103498
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 484238600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-unidad-de-medida",
+        "keyword": "Scenario",
+        "line": 66,
+        "name": "Modificacion invalida de Unidad de medida",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 299450399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6065710100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2500773899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 84352800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 61,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6848626700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 62,
+            "name": "se modifica el campo de \"Unidad de medida\" a \"Selecciona\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 134959899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 63,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10097999599,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at process.processImmediate (node:internal/timers:454:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 531249599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-stock-actual-con-numeros-negativos",
+        "keyword": "Scenario",
+        "line": 75,
+        "name": "Modificacion invalida de Stock Actual con numeros negativos",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 279261100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6450493699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2499874299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72003399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 70,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6811215000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "se modifica el campo de \"Stock Actual\" a \"-10\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 130728700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 72,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10128868998,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 604734399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-costo-con-numeros-negativos",
+        "keyword": "Scenario",
+        "line": 76,
+        "name": "Modificacion invalida de Costo con numeros negativos",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 274250699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6805744098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2539410999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 107735399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 70,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6827118998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "se modifica el campo de \"Costo\" a \"-100\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 160865599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 72,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10121958599,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 718434200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-precio-venta-con-numeros-negativos",
+        "keyword": "Scenario",
+        "line": 77,
+        "name": "Modificacion invalida de Precio venta con numeros negativos",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 280053700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6503988699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2502139398
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 96686599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 70,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6820236100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "se modifica el campo de \"Precio venta\" a \"-200\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 150122899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 72,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10104269200,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 731044100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "modificación-de-información-de-productos;modificacion-invalida-de-código-(sku)-con-campos-vacio",
+        "keyword": "Scenario",
+        "line": 86,
+        "name": "Modificacion invalida de Código (SKU) con campos vacio",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 324711400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ingresó con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\create-steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6381800899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "esta en la página Listado de Articulos",
+            "match": {
+              "location": "step_definitions\\put-steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2521259499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el producto con código \"IPH16-008\" existe",
+            "match": {
+              "location": "step_definitions\\put-steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103797899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 81,
+            "name": "se ingresa al detalle del producto y se navega a la página de edición",
+            "match": {
+              "location": "step_definitions\\put-steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6832028200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 82,
+            "name": "se modifica el campo de \"Código (SKU)\" a \"\"",
+            "match": {
+              "location": "step_definitions\\put-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109335799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 83,
+            "name": "se debe mostrar un mensaje de error \"Error al guardar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\get-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 10115819700,
+              "error_message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.text-red-500')\nExpected string: \u001b[32m\"Error al guardar el artículo.\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.text-red-500')\u001b[22m\n\n    at Proxy.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:221:24)\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\get-steps.js:75:55)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 566372299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@put-products",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "modificación-de-información-de-productos",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Modificación de información de productos",
+    "tags": [
+      {
+        "name": "@put-products",
+        "line": 1
+      }
+    ],
+    "uri": "features\\put.feature"
+  },
+  {
+    "description": "  Como usuario registrado\n  Quiero eliminar artículos desde el listado\n  Para mantener actualizado el inventario",
+    "elements": [
+      {
+        "description": "",
+        "id": "eliminación-de-productos;eliminar-un-producto-exitosamente",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Eliminar un producto exitosamente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 309212500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8511142800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 79529498
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 706534698
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 102632999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "el producto \"Iphone 16 Pro Max\" existe en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87824400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "hace click en el botón eliminar correspondiente al producto \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118832698
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "se debe mostrar una notificación de \"Artículo eliminado con éxito.\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:59"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2104431999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "el producto \"Iphone 16 Pro Max\" ya no debería aparecer en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:55"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 603929098
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1154509900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 14
+          },
+          {
+            "name": "@requirement",
+            "line": 14
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;mostrar-mensaje-de-confirmación-antes-de-eliminar",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Mostrar mensaje de confirmación antes de eliminar",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 269717200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8431153298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80570299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 712211998
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 138138999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "el producto \"Iphone 16 Pro Max\" existe en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1838639198
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "hace click en el botón eliminar correspondiente al producto \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 153549200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "aparece un mensaje de confirmación \"¿Está seguro de eliminar el producto?\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:280"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 96488700,
+              "error_message": "Error: No existe modal de confirmación. Esto evidencia la ausencia de confirmación.\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\delete-steps.js:284:11)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "el usuario confirma la eliminación",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:64"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "el producto \"Iphone 16 Pro Max\" ya no debería aparecer en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:55"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "se debe mostrar una notificación de \"Artículo eliminado con éxito.\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:59"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 13965913000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 23
+          },
+          {
+            "name": "@confirmation",
+            "line": 23
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;eliminar-sin-validación-de-sku-es-una-falla-crítica",
+        "keyword": "Scenario",
+        "line": 34,
+        "name": "Eliminar sin validación de SKU es una falla crítica",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 280567999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8523274799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70836599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 702349200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 93985200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 35,
+            "name": "el producto existe y tiene descripción \"Iphone 16 Pro Max\" pero SKU \"\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1725768300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "hace click en el botón eliminar del producto",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:114"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 149161400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 37,
+            "name": "el sistema eliminó el producto SIN solicitar validación de SKU",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:122"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 110894799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "esto evidencia falla crítica: debería pedir \"Especifique el SKU del producto a eliminar\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:126"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83959200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "demuestra que el sistema NO valida identificador único antes de eliminar",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:130"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 81906999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1153615200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 33
+          },
+          {
+            "name": "@validation",
+            "line": 33
+          },
+          {
+            "name": "@critical",
+            "line": 33
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;cancelar-eliminación-desde-el-modal-de-confirmación",
+        "keyword": "Scenario",
+        "line": 43,
+        "name": "Cancelar eliminación desde el modal de confirmación",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 292271900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8449732399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65005199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 708321799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97093399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 44,
+            "name": "el producto \"Iphone 16 Pro Max\" existe en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1819066299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "hace click en el botón eliminar correspondiente al producto \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 141979200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "cancela la eliminación en el modal de confirmación",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:69"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 87455698,
+              "error_message": "Error: No existe modal de confirmación para cancelar la eliminación. Esto evidencia la ausencia de confirmación.\n    at PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\delete-steps.js:73:11)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 47,
+            "name": "el producto \"Iphone 16 Pro Max\" debería seguir apareciendo en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:79"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "no se debe mostrar ninguna notificación de eliminación",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:83"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1188680099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 42
+          },
+          {
+            "name": "@cancellation",
+            "line": 42
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;acceso-directo-a-producto-eliminado-mediante-url",
+        "keyword": "Scenario",
+        "line": 52,
+        "name": "Acceso directo a producto eliminado mediante URL",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 304496400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8469767700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76972799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 703362099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 98622098
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 53,
+            "name": "el producto \"Iphone 16 Pro Max\" fue eliminado previamente",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:136"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64254200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "el usuario intenta acceder directamente al producto eliminado mediante URL",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:166"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2869200298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 55,
+            "name": "se debe mostrar un mensaje de error en el dashboard \"Error al cargar el artículo.\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 931301999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 56,
+            "name": "queda en evidencia que el articulo no puede ser accedido y esta protegido contra accesos directos",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:180"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 63784500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 73238200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 51
+          },
+          {
+            "name": "@edge-case",
+            "line": 51
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;impedir-eliminación-si-el-producto-tiene-stock-disponible",
+        "keyword": "Scenario",
+        "line": 62,
+        "name": "Impedir eliminación si el producto tiene stock disponible",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 250323299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8342528700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66637298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 686820499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 104677699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 63,
+            "name": "el producto \"Iphone 16 Pro Max\" existe con stock 10",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:184"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1865690499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 64,
+            "name": "el usuario intenta eliminar el producto haciendo click en el botón eliminar",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:191"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 149284999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 65,
+            "name": "debe mostrar error \"No se puede eliminar producto con stock disponible\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:195"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5105032999,
+              "error_message": "Error: No se encontró el toast de error esperado: 'No se puede eliminar producto con stock disponible'. Toasts de error encontrados: []. Detalle: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('.Toastify__toast--error')\nExpected string: \u001b[32m\"No se puede eliminar producto con stock disponible\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.Toastify__toast--error')\u001b[22m\n\n    at DeletePage.verifyErrorToast (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\pages\\DeletePage.js:282:13)\n    at async PlaywrightWorld.<anonymous> (C:\\Users\\milla\\OneDrive\\Documentos\\GitHub\\Proyecto\\adl-testing\\Frontend\\step_definitions\\delete-steps.js:196:3)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "el producto debe permanecer en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:199"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 73981199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 61
+          },
+          {
+            "name": "@business-rule",
+            "line": 61
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "eliminación-de-productos;verificar-visibilidad-del-botón-eliminar",
+        "keyword": "Scenario",
+        "line": 70,
+        "name": "Verificar visibilidad del botón eliminar",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 270951899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario ha iniciado sesión con email \"<email>\" y contraseña \"<password>\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8473958999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "está en el dashboard del sistema",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78497298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "navega a la sección de \"Artículos\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 710823999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "la lista de articulos está completamente cargada",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111940799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 71,
+            "name": "el producto \"Iphone 16 Pro Max\" existe en la tabla",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1854797298
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 72,
+            "name": "se carga la vista de artículos",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:204"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106311900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 73,
+            "name": "debe aparecer el botón con el icono para eliminar el producto \"Iphone 16 Pro Max\"",
+            "match": {
+              "location": "step_definitions\\delete-steps.js:208"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 119171600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3271099900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@delete",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 69
+          },
+          {
+            "name": "@ui",
+            "line": 69
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "eliminación-de-productos",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Eliminación de Productos",
+    "tags": [
+      {
+        "name": "@delete",
+        "line": 1
+      }
+    ],
+    "uri": "features\\delete.feature"
+  }
+]

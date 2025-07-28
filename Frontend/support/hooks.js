@@ -1,10 +1,7 @@
 const { Before, After, AfterStep } = require('@cucumber/cucumber');
 const { setDefaultTimeout } = require('@cucumber/cucumber');
-const LoginPage = require('../pages/LoginPage');
-const GetPage = require('../pages/GetPage');
 const fs = require('fs');
-const PutPage = require('../pages/PutPage');
-const { DeletePage } = require('../pages/DeletePage');
+
 
 // const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
@@ -15,17 +12,12 @@ setDefaultTimeout(60 * 1000) // Set timeout to 60 seconds
 Before(async function () {
   // 'this' es una instancia de tu CustomWorld
   await this.init()
+  let productId
 
   const screenshotDir = 'reports/screenshots'
   if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir, { recursive: true })
   }
-  // Instanciamos los Page Objects para cada escenario, pasándoles la nueva página
-
-  this.loginPage = new LoginPage(this.page)
-  this.getPage = new GetPage(this.page)
-  this.putPage = new PutPage(this.page)
-  this.deletePage = new DeletePage(this.page)
 })
 
 AfterStep(async function (scenario) {
@@ -60,8 +52,8 @@ After(async function (scenario) {
     // Limpieza de productos solo para escenarios @delete
     if (scenario.pickle.tags.some(tag => tag.name === '@delete')) {
         const nombres = [
-            'Producto Duplicado',
             'Iphone 16 Pro Max',
+            'iPhone 16'
             // Agrega aquí otros nombres usados en los tests si es necesario
         ];
         for (const nombre of nombres) {
